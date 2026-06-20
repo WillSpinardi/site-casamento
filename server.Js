@@ -40,6 +40,13 @@ app.get('/convidados', async (req, res) => {
     res.json(lista);
 });
 
+// Exclui um convidado pelo ID (número de identificação)
+app.delete('/convidados/:id', async (req, res) => {
+    const id = req.params.id;
+    await db.run('DELETE FROM convidados WHERE id = ?', [id]);
+    res.json({ mensagem: 'Convidado removido com sucesso!' });
+});
+
 app.listen(3000, () => {
     console.log('Servidor rodando em http://localhost:3000');
 });

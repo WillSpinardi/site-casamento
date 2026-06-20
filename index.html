@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>O Nosso Casamento</title>
+    <style>
+        body { font-family: 'Georgia', serif; text-align: center; background-color: #fdfaf6; color: #333; margin: 0; }
+        
+        /* Menu elegante fixo no topo */
+        .menu { background-color: rgba(255, 255, 255, 0.95); padding: 15px; position: fixed; width: 100%; top: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .menu button { background: none; color: #C71585; border: none; font-size: 16px; cursor: pointer; margin: 0 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .menu button:hover { color: #C71585; }
+
+        /* Imagem de Fundo e Texto da data */
+        .fundo-casamento {
+            /* A linha abaixo junta a sombra escura com a sua fotografia */
+            background-image: linear-gradient(rgb(207, 27, 153), rgba(207, 27, 153)), url('3667083.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Ocupa o ecrã inteiro do telemóvel ou PC */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            padding-top: 50px;
+        }
+        .fundo-casamento h1 { font-size: 50px; margin-bottom: 10px; font-weight: normal; }
+        .fundo-casamento p { font-size: 22px; letter-spacing: 2px; }
+
+        /* Caixas de Presença e Presentes */
+        .conteudo { padding: 100px 20px; }
+        .caixa { margin: 0 auto; padding: 30px; border-radius: 10px; width: 350px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        input, select, button.btn-confirma, .botao-loja { width: 100%; margin-top: 15px; padding: 12px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button.btn-confirma { background: #8b7355; color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        .botao-loja { display: inline-block; text-decoration: none; background: #555; color: white; border: none; cursor: pointer; text-transform: uppercase; }
+        
+        .aba { display: none; } 
+        .aba.ativa { display: block; } 
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <button onclick="mudarAba('inicio')">Início</button>
+        <button onclick="mudarAba('presentes')">Lista de Presentes</button>
+        <button onclick="mudarAba('rsvp')">Confirmar Presença</button>
+    </div>
+
+    <div id="inicio" class="aba ativa">
+        <div class="fundo-casamento">
+            <h1>O Nosso Casamento</h1>
+            <p>10 de outubro de 2026</p>
+        </div>
+    </div>
+
+    <div id="presentes" class="aba conteudo">
+        <div class="caixa">
+            <h2>Lista de Presentes</h2>
+            <p>Fique à vontade para escolher uma loja:</p>
+            <a href="LINK_AQUI" target="_blank" class="botao-loja">Amazon</a>
+            <a href="LINK_AQUI" target="_blank" class="botao-loja">Outra Loja</a>
+        </div>
+    </div>
+
+    <div id="rsvp" class="aba conteudo">
+        <div class="caixa">
+            <h2>Confirme a sua Presença</h2>
+            <form id="formRsvp">
+                <input type="text" id="nome" placeholder="O seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')">
+                <select id="vaiComparecer">
+                    <option value="true">Vou comparecer</option>
+                    <option value="false">Não poderei ir</option>
+                </select>
+                <button type="submit" class="btn-confirma">Confirmar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function mudarAba(idDaAba) {
+            const abas = document.querySelectorAll('.aba');
+            abas.forEach(aba => aba.classList.remove('ativa'));
+            document.getElementById(idDaAba).classList.add('ativa');
+        }
+
+        const form = document.getElementById('formRsvp');
+        form.addEventListener('submit', async (evento) => {
+            evento.preventDefault(); 
+            const nome = document.getElementById('nome').value;
+            const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
+
+            await fetch('http://localhost:3000/rsvp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, vaiComparecer })
+            });
+
+            alert('Resposta guardada com sucesso!');
+            form.reset(); 
+        });
+    </script>
+</body>
+</html>
