@@ -5,23 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William & Luiza</title>
-    <!-- Fontes do Google (Versão Otimizada) -->
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
+    
     <style>
-        /* Ajusta o cursor para a seta padrão em todo o site */
-        * {
+        /* Ajusta o cursor apenas nos textos */
+        p, h1, h2, span {
             cursor: default;
         }
 
-        /* Mantém o cursor correto nos botões, links e campos digitáveis */
-        button,
-        a,
-        input,
-        select {
+        /* Mantém o cursor correto nos elementos interativos */
+        button, a, input, select {
             cursor: pointer;
         }
 
@@ -29,45 +25,15 @@
             cursor: text;
         }
 
-        /* Impede o aparecimento do cursor de escrita nos textos */
-        body {
-            user-select: none;
-            /* Impede a seleção de texto e o cursor de escrita */
-            -webkit-user-select: none;
-        }
-
-        /* Mantém o cursor de escrita ativo apenas onde realmente dá para digitar */
-        input,
-        select,
-        textarea {
-            user-select: auto;
-            -webkit-user-select: auto;
-        }
-
-        .wf-loading * {
-            opacity: 0;
-        }
-
-        html {
-            font-display: block;
-        }
-
-        html {
-            font-display: swap;
-        }
-
-        /* Suavização global de fontes e Fundo Off-White */
+        /* Fundo Off-White e Tipografia */
         body {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             background-color: #FAF7F6;
-            /* Off-White / Creme */
             color: #333333;
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
         }
 
         /* Barra Superior */
@@ -87,7 +53,6 @@
             font-family: 'Great Vibes', cursive;
             font-size: 28px;
             color: #D10068;
-            /* Fúcsia */
             font-weight: normal;
         }
 
@@ -110,7 +75,6 @@
             border-radius: 4px;
         }
 
-        /* Botão Ativo em Fúcsia */
         .menu-botoes button.ativo {
             background-color: #D10068;
             color: #FFFFFF;
@@ -125,7 +89,6 @@
         }
 
         /* Banner Principal */
-        /* Banner Principal */
         .banner-destaque {
             position: relative;
             width: 100%;
@@ -134,44 +97,31 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            /* Mantém o desfoque dentro dos limites da tela */
         }
 
-        /* Camada da Foto com Desfoque e Preto/Branco */
         .banner-destaque::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('banner-principal.jpg');
             background-size: cover;
             background-position: center 37%;
             filter: grayscale(100%) blur(1px);
-            /* O desfoque fica apenas na foto */
             transform: scale(1.05);
-            /* Evita bordas brancas causadas pelo blur */
             z-index: 1;
         }
 
-        /* Camada para escurecer levemente a foto e dar leitura ao texto */
         .banner-destaque::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.3);
             z-index: 2;
         }
 
-        /* Texto Nítido sobre a Foto */
         .texto-banner {
             position: relative;
             z-index: 3;
-            /* Fica acima de todas as camadas */
             color: #FFFFFF;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
@@ -200,7 +150,7 @@
             color: #FFFFFF;
         }
 
-        /* Estrutura Centralizada da Seção do Cronômetro */
+        /* Cronômetro */
         .secao-cronometro {
             padding: 50px 20px 30px 20px;
             text-align: center;
@@ -215,7 +165,6 @@
             text-align: center;
         }
 
-        /* Novo Modelo de Cronômetro (Moderno e Elegante) */
         .cronometro {
             display: flex;
             justify-content: center;
@@ -228,7 +177,6 @@
             background-color: #FFFFFF;
             border: 1px solid #F0D5DA;
             border-top: 3px solid #D10068;
-            /* Detalhe fúcsia no topo */
             padding: 16px 12px 12px 12px;
             width: 85px;
             border-radius: 8px;
@@ -260,7 +208,7 @@
             color: #777777;
         }
 
-        /* Seção Polaroid com Fundo Rosa-Chá */
+        /* Seção Polaroid */
         .secao-polaroid {
             display: flex;
             flex-wrap: wrap;
@@ -295,14 +243,8 @@
             display: block;
         }
 
-        .polaroid-esquerda {
-            transform: rotate(-6deg);
-        }
-
-        .polaroid-direita {
-            transform: rotate(4deg);
-            margin-top: 20px;
-        }
+        .polaroid-esquerda { transform: rotate(-6deg); }
+        .polaroid-direita { transform: rotate(4deg); margin-top: 20px; }
 
         .foto-polaroid:hover {
             transform: scale(1.05) rotate(0deg);
@@ -330,9 +272,7 @@
         }
 
         /* Caixas de Conteúdo */
-        .conteudo {
-            padding: 20px;
-        }
+        .conteudo { padding: 20px; }
 
         .caixa {
             margin: 0 auto;
@@ -344,12 +284,9 @@
             border: 1px solid #F5E6E8;
         }
 
-        .caixa h2 {
-            color: #D10068;
-        }
+        .caixa h2 { color: #D10068; }
 
-        input,
-        select {
+        input, select {
             width: 100%;
             margin-top: 15px;
             padding: 12px;
@@ -361,9 +298,7 @@
             background-color: #FAF7F6;
         }
 
-        /* Botões em Fúcsia */
-        button.btn-confirma,
-        .botao-loja {
+        button.btn-confirma, .botao-loja {
             width: 100%;
             margin-top: 15px;
             padding: 14px;
@@ -383,23 +318,15 @@
             transition: background-color 0.3s ease;
         }
 
-        button.btn-confirma:hover,
-        .botao-loja:hover {
+        button.btn-confirma:hover, .botao-loja:hover {
             background-color: #A80053;
         }
 
-        a {
-            color: #D10068;
-        }
+        a { color: #D10068; }
 
         /* Controle das Abas */
-        .aba {
-            display: none;
-        }
-
-        .aba.ativa {
-            display: block;
-        }
+        .aba { display: none; }
+        .aba.ativa { display: block; }
     </style>
 </head>
 
@@ -415,7 +342,7 @@
         </div>
     </header>
 
-    <!-- Aba 1: Início -->
+    <!-- ABA 1: INÍCIO -->
     <div id="inicio" class="aba ativa">
         <section class="banner-destaque">
             <div class="texto-banner">
@@ -428,10 +355,9 @@
             </div>
         </section>
 
-        <!-- Seção do Cronômetro Centralizada -->
+        <!-- Cronômetro -->
         <div class="secao-cronometro">
             <h2 class="titulo-secundario">Até o grande dia</h2>
-
             <div class="cronometro">
                 <div class="caixa-tempo">
                     <span id="dias">0</span>
@@ -452,77 +378,61 @@
             </div>
         </div>
 
+        <!-- Polaroid -->
         <div class="conteudo" style="padding-top: 0;">
-            <!-- Seção Polaroid -->
             <section class="secao-polaroid">
                 <div class="container-polaroid">
                     <div class="foto-polaroid polaroid-esquerda">
                         <img src="polaroid1.jpeg" alt="William e Luiza 1" loading="lazy">
                     </div>
                     <div class="foto-polaroid polaroid-direita">
-                        <img src="polaroid2.jpg
-                        " alt="William e Luiza 2" loading="lazy">
+                        <img src="polaroid2.jpg" alt="William e Luiza 2" loading="lazy">
                     </div>
                 </div>
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
-                        dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
                 </div>
             </section>
-            <!-- Seção de Localização com Foto de Fundo -->
-            <div
-                style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
 
+            <!-- Localização -->
+            <div style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
                 <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
-                    <h2
-                        style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                        Localização</h2>
-                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova
-                        Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
-
-                    <!-- Cole o seu <iframe> do Google Maps dentro desta div -->
+                    <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Localização</h2>
+                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
                     <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!-- Aba 2: Confirmação de Presença -->
-        <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
-            <div class="caixa">
-                <h2
-                    style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">
-                    Confirme sua Presença</h2>
-                <form id="formRsvp">
-                    <input type="text" id="nome" placeholder="Seu nome completo" required
-                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
-                        oninput="this.setCustomValidity('')">
-                    <select id="vaiComparecer">
-                        <option value="true">Vou comparecer</option>
-                        <option value="false">Não poderei ir</option>
-                    </select>
-                    <button type="submit" class="btn-confirma">Confirmar</button>
-                </form>
-            </div>
-        </div>
+    </div> <!-- FIM DA ABA INÍCIO -->
 
-        <!-- Aba 3: Presentes -->
-        <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
-            <div class="caixa">
-                <h2
-                    style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">
-                    Lista de Presentes</h2>
-                <p style="font-size: 14px; color: #444444;">Fique à vontade para escolher um presente:</p>
-                <a href="#" target="_blank" class="botao-loja">Amazon</a>
-            </div>
+    <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
+    <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
+        <div class="caixa">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">Confirme sua Presença</h2>
+            <form id="formRsvp">
+                <input type="text" id="nome" placeholder="Seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')">
+                <select id="vaiComparecer">
+                    <option value="true">Vou comparecer</option>
+                    <option value="false">Não poderei ir</option>
+                </select>
+                <button type="submit" class="btn-confirma">Confirmar</button>
+            </form>
         </div>
     </div>
+
+    <!-- ABA 3: PRESENTES -->
+    <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
+        <div class="caixa">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">Lista de Presentes</h2>
+            <p style="font-size: 14px; color: #444444;">Fique à vontade para escolher um presente:</p>
+            <a href="#" target="_blank" class="botao-loja">Amazon</a>
+        </div>
+    </div>
+
     <script>
         function mudarAba(idDaAba, elemento) {
             document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
