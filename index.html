@@ -107,7 +107,7 @@
             background-image: url('banner-principal.jpg');
             background-size: cover;
             background-position: center 37%;
-            filter: grayscale(100%) blur(4px);
+            filter: grayscale(100%) blur(1px);
             /* O desfoque fica apenas na foto */
             transform: scale(1.05);
             /* Evita bordas brancas causadas pelo blur */
@@ -431,82 +431,91 @@
                 </div>
             </section>
 
-            <div class="caixa">
+            <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
                 <h2
                     style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
                     Localização</h2>
-                <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 -
-                    Bairro<br>São Paulo - SP</p>
-                <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
+                <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova Cantareira, 3890 -
+                    Tucuruvi<br>São Paulo - SP, 02330-000</p>
+
+                <!-- Cole o seu <iframe> do Google Maps dentro desta div -->
+                <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </iframe>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Aba 2: Confirmação de Presença -->
-    <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
-        <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                Confirme sua Presença</h2>
-            <form id="formRsvp">
-                <input type="text" id="nome" placeholder="Seu nome completo" required
-                    oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
-                    oninput="this.setCustomValidity('')">
-                <select id="vaiComparecer">
-                    <option value="true">Vou comparecer</option>
-                    <option value="false">Não poderei ir</option>
-                </select>
-                <button type="submit" class="btn-confirma">Confirmar</button>
-            </form>
+        <!-- Aba 2: Confirmação de Presença -->
+        <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
+            <div class="caixa">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                    Confirme sua Presença</h2>
+                <form id="formRsvp">
+                    <input type="text" id="nome" placeholder="Seu nome completo" required
+                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
+                        oninput="this.setCustomValidity('')">
+                    <select id="vaiComparecer">
+                        <option value="true">Vou comparecer</option>
+                        <option value="false">Não poderei ir</option>
+                    </select>
+                    <button type="submit" class="btn-confirma">Confirmar</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Aba 3: Presentes -->
-    <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
-        <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                Lista de Presentes</h2>
-            <p style="font-size: 14px;">Fique à vontade para escolher um presente:</p>
-            <a href="#" target="_blank" class="botao-loja">Amazon</a>
+        <!-- Aba 3: Presentes -->
+        <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
+            <div class="caixa">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                    Lista de Presentes</h2>
+                <p style="font-size: 14px;">Fique à vontade para escolher um presente:</p>
+                <a href="#" target="_blank" class="botao-loja">Amazon</a>
+            </div>
         </div>
-    </div>
 
-    <script>
-        function mudarAba(idDaAba, elemento) {
-            document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
-            document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
+        <script>
+            function mudarAba(idDaAba, elemento) {
+                document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
+                document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
 
-            document.getElementById(idDaAba).classList.add('ativa');
-            elemento.classList.add('ativo');
-        }
+                document.getElementById(idDaAba).classList.add('ativa');
+                elemento.classList.add('ativo');
+            }
 
-        const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
+            const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
 
-        setInterval(function () {
-            const agora = new Date().getTime();
-            const distancia = dataCasamento - agora;
+            setInterval(function () {
+                const agora = new Date().getTime();
+                const distancia = dataCasamento - agora;
 
-            document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24));
-            document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
-        }, 1000);
+                document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
+            }, 1000);
 
-        const form = document.getElementById('formRsvp');
-        form.addEventListener('submit', async (evento) => {
-            evento.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
+            const form = document.getElementById('formRsvp');
+            form.addEventListener('submit', async (evento) => {
+                evento.preventDefault();
+                const nome = document.getElementById('nome').value;
+                const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-            await fetch('http://localhost:3000/rsvp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome, vaiComparecer })
+                await fetch('http://localhost:3000/rsvp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, vaiComparecer })
+                });
+
+                alert('Resposta salva com sucesso!');
+                form.reset();
             });
-
-            alert('Resposta salva com sucesso!');
-            form.reset();
-        });
-    </script>
+        </script>
 </body>
 
 </html>
