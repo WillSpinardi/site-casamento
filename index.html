@@ -14,446 +14,450 @@
 
     <style>
         /* Ajusta o cursor apenas nos textos */
-       @media (max-width: 768px) {
-            .header-topo {
-                flex-direction: column;
-                gap: 12px;
-                padding: 15px 10px;
-            }
+        /* === COLE O CÓDIGO NOVO AQUI (ANTES DE 
+    </style>) === */
+    @media (max-width: 768px) {
+    .header-topo {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 10px;
+    }
 
-            .logo-topo {
-                font-size: 24px;
-            }
+    .logo-topo {
+    font-size: 24px;
+    }
 
-            .menu-botoes button {
-                padding: 6px 10px;
-                font-size: 10px;
-                letter-spacing: 1px;
-            }
+    .menu-botoes button {
+    padding: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    }
 
-            .banner-destaque {
-                height: 60vh;
-            }
+    .banner-destaque {
+    height: 60vh;
+    }
 
-            .texto-banner h1 {
-                font-size: 55px;
-            }
+    .texto-banner h1 {
+    font-size: 55px;
+    }
 
-            .texto-banner .e-comercial {
-                font-size: 30px;
-            }
+    .texto-banner .e-comercial {
+    font-size: 30px;
+    }
 
-            .texto-banner .data h2 {
-                font-size: 14px;
-            }
+    .texto-banner .data h2 {
+    font-size: 14px;
+    }
 
-            .cronometro {
-                gap: 8px;
-            }
+    .cronometro {
+    gap: 8px;
+    }
 
-            .caixa-tempo {
-                width: 65px;
-                padding: 10px 5px;
-            }
+    .caixa-tempo {
+    width: 65px;
+    padding: 10px 5px;
+    }
 
-            .caixa-tempo span {
-                font-size: 22px;
-            }
+    .caixa-tempo span {
+    font-size: 22px;
+    }
 
-            .caixa-tempo p {
-                font-size: 8px;
-            }
+    .caixa-tempo p {
+    font-size: 8px;
+    }
 
-            .secao-polaroid {
-                padding: 30px 15px;
-                gap: 20px;
-            }
+    .secao-polaroid {
+    padding: 30px 15px;
+    gap: 20px;
+    }
 
-            .container-polaroid {
-                flex-direction: column;
-                align-items: center;
-            }
+    .container-polaroid {
+    flex-direction: column;
+    align-items: center;
+    }
 
-            .polaroid-esquerda, .polaroid-direita {
-                transform: none !important;
-                margin-top: 0 !important;
-            }
+    .polaroid-esquerda, .polaroid-direita {
+    transform: none !important;
+    margin-top: 0 !important;
+    }
 
-            .foto-polaroid img {
-                width: 220px;
-                height: 260px;
-            }
+    .foto-polaroid img {
+    width: 220px;
+    height: 260px;
+    }
 
-            .texto-polaroid {
-                text-align: center;
-            }
+    .texto-polaroid {
+    text-align: center;
+    }
 
-            #rsvp > div {
-                flex-direction: column;
-                padding: 20px 10px !important;
-            }
+    #rsvp > div {
+    flex-direction: column;
+    padding: 20px 10px !important;
+    }
 
-            #rsvp > div > div:last-child {
-                display: none;
-            }
+    #rsvp > div > div:last-child {
+    display: none;
+    }
 
-            #rsvp img {
-                max-width: 220px !important;
-                height: 280px !important;
-            }
+    #rsvp img {
+    max-width: 220px !important;
+    height: 280px !important;
+    }
 
-            #presentes .caixa {
-                padding: 20px 15px !important;
-            }
-       
-        p,
-        h1,
-        h2,
-        span {
-            cursor: default;
-        }
+    #presentes .caixa {
+    padding: 20px 15px !important;
+    }
+    }
+    </style> <!-- O código entra antes desta linha -->
+</head>
+p,
+h1,
+h2,
+span {
+cursor: default;
+}
 
-        /* Mantém o cursor correto nos elementos interativos */
-        button,
-        a,
-        input,
-        select {
-            cursor: pointer;
-        }
+/* Mantém o cursor correto nos elementos interativos */
+button,
+a,
+input,
+select {
+cursor: pointer;
+}
 
-        input[type="text"] {
-            cursor: text;
-        }
+input[type="text"] {
+cursor: text;
+}
 
-        /* Fundo Off-White e Tipografia */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-            background-color: #FAF7F6;
-            color: #333333;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
+/* Fundo Off-White e Tipografia */
+body {
+font-family: 'Montserrat', sans-serif;
+text-align: center;
+background-color: #FAF7F6;
+color: #333333;
+margin: 0;
+padding: 0;
+-webkit-font-smoothing: antialiased;
+}
 
-        /* Barra Superior */
-        .header-topo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background-color: #FAF7F6;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #F5E6E8;
-        }
+/* Barra Superior */
+.header-topo {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 40px;
+background-color: #FAF7F6;
+position: sticky;
+top: 0;
+z-index: 100;
+border-bottom: 1px solid #F5E6E8;
+}
 
-        .logo-topo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 28px;
-            color: #D10068;
-            font-weight: normal;
-        }
+.logo-topo {
+font-family: 'Great Vibes', cursive;
+font-size: 28px;
+color: #D10068;
+font-weight: normal;
+}
 
-        .menu-botoes {
-            display: flex;
-            gap: 15px;
-        }
+.menu-botoes {
+display: flex;
+gap: 15px;
+}
 
-        .menu-botoes button {
-            background: none;
-            border: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #555555;
-            padding: 8px 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
+.menu-botoes button {
+background: none;
+border: none;
+font-family: 'Montserrat', sans-serif;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #555555;
+padding: 8px 16px;
+cursor: pointer;
+transition: all 0.3s ease;
+border-radius: 4px;
+}
 
-        .menu-botoes button.ativo {
-            background-color: #D10068;
-            color: #FFFFFF;
-        }
+.menu-botoes button.ativo {
+background-color: #D10068;
+color: #FFFFFF;
+}
 
-        .menu-botoes button:hover {
-            color: #D10068;
-        }
+.menu-botoes button:hover {
+color: #D10068;
+}
 
-        .menu-botoes button.ativo:hover {
-            color: #FFFFFF;
-        }
+.menu-botoes button.ativo:hover {
+color: #FFFFFF;
+}
 
-        /* Banner Principal */
-        .banner-destaque {
-            position: relative;
-            width: 100%;
-            height: 85vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+/* Banner Principal */
+.banner-destaque {
+position: relative;
+width: 100%;
+height: 85vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
 
-        .banner-destaque::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('banner-principal.jpg');
-            background-size: cover;
-            background-position: center 37%;
-            filter: grayscale(100%) blur(1px);
-            transform: scale(1.05);
-            z-index: 1;
-        }
+.banner-destaque::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-image: url('banner-principal.jpg');
+background-size: cover;
+background-position: center 37%;
+filter: grayscale(100%) blur(1px);
+transform: scale(1.05);
+z-index: 1;
+}
 
-        .banner-destaque::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 2;
-        }
+.banner-destaque::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.3);
+z-index: 2;
+}
 
-        .texto-banner {
-            position: relative;
-            z-index: 3;
-            color: #FFFFFF;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-        }
+.texto-banner {
+position: relative;
+z-index: 3;
+color: #FFFFFF;
+text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
 
-        .texto-banner h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 85px;
-            margin: 0;
-            font-weight: 400;
-            line-height: 0.9;
-            color: #FFFFFF;
-        }
+.texto-banner h1 {
+font-family: 'Great Vibes', cursive;
+font-size: 85px;
+margin: 0;
+font-weight: 400;
+line-height: 0.9;
+color: #FFFFFF;
+}
 
-        .texto-banner .e-comercial {
-            font-family: 'Great Vibes', cursive;
-            font-size: 40px;
-            margin: 10px 0;
-            color: #F8ECEE;
-        }
+.texto-banner .e-comercial {
+font-family: 'Great Vibes', cursive;
+font-size: 40px;
+margin: 10px 0;
+color: #F8ECEE;
+}
 
-        .texto-banner .data {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            letter-spacing: 4px;
-            margin-top: 20px;
-            color: #FFFFFF;
-        }
+.texto-banner .data {
+font-family: 'Montserrat', sans-serif;
+font-size: 14px;
+letter-spacing: 4px;
+margin-top: 20px;
+color: #FFFFFF;
+}
 
-        /* Cronômetro */
-        .secao-cronometro {
-            padding: 50px 20px 30px 20px;
-            text-align: center;
-        }
+/* Cronômetro */
+.secao-cronometro {
+padding: 50px 20px 30px 20px;
+text-align: center;
+}
 
-        .titulo-secundario {
-            font-family: 'Great Vibes', cursive;
-            font-size: 48px;
-            margin: 0 0 25px 0;
-            font-weight: normal;
-            color: #D10068;
-            text-align: center;
-        }
+.titulo-secundario {
+font-family: 'Great Vibes', cursive;
+font-size: 48px;
+margin: 0 0 25px 0;
+font-weight: normal;
+color: #D10068;
+text-align: center;
+}
 
-        .cronometro {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin: 0 auto 30px auto;
-        }
+.cronometro {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+margin: 0 auto 30px auto;
+}
 
-        .caixa-tempo {
-            background-color: #FFFFFF;
-            border: 1px solid #F0D5DA;
-            border-top: 3px solid #D10068;
-            padding: 16px 12px 12px 12px;
-            width: 85px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(209, 0, 104, 0.08);
-            transition: transform 0.2s ease;
-        }
+.caixa-tempo {
+background-color: #FFFFFF;
+border: 1px solid #F0D5DA;
+border-top: 3px solid #D10068;
+padding: 16px 12px 12px 12px;
+width: 85px;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(209, 0, 104, 0.08);
+transition: transform 0.2s ease;
+}
 
-        .caixa-tempo:hover {
-            transform: translateY(-3px);
-        }
+.caixa-tempo:hover {
+transform: translateY(-3px);
+}
 
-        .caixa-tempo span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 30px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 4px;
-            color: #D10068;
-            line-height: 1;
-        }
+.caixa-tempo span {
+font-family: 'Montserrat', sans-serif;
+font-size: 30px;
+font-weight: 700;
+display: block;
+margin-bottom: 4px;
+color: #D10068;
+line-height: 1;
+}
 
-        .caixa-tempo p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin: 0;
-            letter-spacing: 1.5px;
-            color: #777777;
-        }
+.caixa-tempo p {
+font-family: 'Montserrat', sans-serif;
+font-size: 10px;
+font-weight: 600;
+text-transform: uppercase;
+margin: 0;
+letter-spacing: 1.5px;
+color: #777777;
+}
 
-        /* Seção Polaroid */
-        .secao-polaroid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 50px 20px;
-            margin-bottom: 40px;
-            background-color: #F8ECEE;
-            border-top: 1px solid #F0D5DA;
-            border-bottom: 1px solid #F0D5DA;
-        }
+/* Seção Polaroid */
+.secao-polaroid {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+gap: 40px;
+padding: 50px 20px;
+margin-bottom: 40px;
+background-color: #F8ECEE;
+border-top: 1px solid #F0D5DA;
+border-bottom: 1px solid #F0D5DA;
+}
 
-        .container-polaroid {
-            position: relative;
-            display: flex;
-            gap: 15px;
-        }
+.container-polaroid {
+position: relative;
+display: flex;
+gap: 15px;
+}
 
-        .foto-polaroid {
-            background: #FFFFFF;
-            padding: 12px 12px 35px 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border-radius: 2px;
-            transition: transform 0.3s ease;
-        }
+.foto-polaroid {
+background: #FFFFFF;
+padding: 12px 12px 35px 12px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+border-radius: 2px;
+transition: transform 0.3s ease;
+}
 
-        .foto-polaroid img {
-            width: 160px;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
+.foto-polaroid img {
+width: 160px;
+height: 200px;
+object-fit: cover;
+display: block;
+}
 
-        .polaroid-esquerda {
-            transform: rotate(-6deg);
-        }
+.polaroid-esquerda {
+transform: rotate(-6deg);
+}
 
-        .polaroid-direita {
-            transform: rotate(4deg);
-            margin-top: 20px;
-        }
+.polaroid-direita {
+transform: rotate(4deg);
+margin-top: 20px;
+}
 
-        .foto-polaroid:hover {
-            transform: scale(1.05) rotate(0deg);
-            z-index: 5;
-        }
+.foto-polaroid:hover {
+transform: scale(1.05) rotate(0deg);
+z-index: 5;
+}
 
-        .texto-polaroid {
-            max-width: 380px;
-            text-align: left;
-        }
+.texto-polaroid {
+max-width: 380px;
+text-align: left;
+}
 
-        .texto-polaroid h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 45px;
-            margin: 0 0 10px 0;
-            color: #D10068;
-            font-weight: normal;
-        }
+.texto-polaroid h2 {
+font-family: 'Great Vibes', cursive;
+font-size: 45px;
+margin: 0 0 10px 0;
+color: #D10068;
+font-weight: normal;
+}
 
-        .texto-polaroid p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #444444;
-            margin: 0;
-        }
+.texto-polaroid p {
+font-size: 14px;
+line-height: 1.6;
+color: #444444;
+margin: 0;
+}
 
-        /* Caixas de Conteúdo */
-        .conteudo {
-            padding: 20px;
-        }
+/* Caixas de Conteúdo */
+.conteudo {
+padding: 20px;
+}
 
-        .caixa {
-            margin: 0 auto;
-            padding: 35px 30px;
-            border-radius: 6px;
-            width: 320px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
-            border: 1px solid #F5E6E8;
-        }
+.caixa {
+margin: 0 auto;
+padding: 35px 30px;
+border-radius: 6px;
+width: 320px;
+background: #FFFFFF;
+box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
+border: 1px solid #F5E6E8;
+}
 
-        .caixa h2 {
-            color: #D10068;
-        }
+.caixa h2 {
+color: #D10068;
+}
 
-        input,
-        select {
-            width: 100%;
-            margin-top: 15px;
-            padding: 12px;
-            border: 1px solid #E6D0D4;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #FAF7F6;
-        }
+input,
+select {
+width: 100%;
+margin-top: 15px;
+padding: 12px;
+border: 1px solid #E6D0D4;
+border-radius: 4px;
+box-sizing: border-box;
+font-size: 14px;
+font-family: 'Montserrat', sans-serif;
+background-color: #FAF7F6;
+}
 
-        button.btn-confirma,
-        .botao-loja {
-            width: 100%;
-            margin-top: 15px;
-            padding: 14px;
-            background-color: #D10068;
-            color: #FFFFFF;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 13px;
-            display: block;
-            text-decoration: none;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
+button.btn-confirma,
+.botao-loja {
+width: 100%;
+margin-top: 15px;
+padding: 14px;
+background-color: #D10068;
+color: #FFFFFF;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+font-size: 13px;
+display: block;
+text-decoration: none;
+box-sizing: border-box;
+font-family: 'Montserrat', sans-serif;
+font-weight: 600;
+transition: background-color 0.3s ease;
+}
 
-        button.btn-confirma:hover,
-        .botao-loja:hover {
-            background-color: #A80053;
-        }
+button.btn-confirma:hover,
+.botao-loja:hover {
+background-color: #A80053;
+}
 
-        a {
-            color: #D10068;
-        }
+a {
+color: #D10068;
+}
 
-        /* Controle das Abas */
-        .aba {
-            display: none;
-        }
+/* Controle das Abas */
+.aba {
+display: none;
+}
 
-        .aba.ativa {
-            display: block;
-        }
-    </style>
+.aba.ativa {
+display: block;
+}
+</style>
 </head>
 
 <body>
