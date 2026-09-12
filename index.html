@@ -1,47 +1,150 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>William & Luiza</title>
     <!-- Importando fontes elegantes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; text-align: center; background-color: #F8F5E9; color: #4A5B52; margin: 0; }
-        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background-color: #F8F5E9;
+            color: #4A5B52;
+            margin: 0;
+        }
+
         /* Menu de Navegação */
-        .menu { padding: 20px; }
-        .menu button { background: none; color: #4A5B52; border: none; font-size: 12px; cursor: pointer; margin: 0 15px; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; font-weight: bold; }
-        .menu button:hover { color: #C71585; } /* Fúcsia */
+        .menu {
+            padding: 20px;
+        }
+
+        .menu button {
+            background: none;
+            color: #4A5B52;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+        }
+
+        .menu button:hover {
+            color: #C71585;
+        }
+
+        /* Fúcsia */
 
         /* Textos Principais */
-        .nomes { font-family: 'Great Vibes', cursive; font-size: 80px; margin: 40px 0 0 0; font-weight: normal; }
-        .e-comercial { font-family: 'Great Vibes', cursive; font-size: 40px; color: #C71585; margin: -20px 0; font-weight: normal; }
-        .titulo-secundario { font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 50px; font-weight: normal; }
+        .nomes {
+            font-family: 'Great Vibes', cursive;
+            font-size: 80px;
+            margin: 40px 0 0 0;
+            font-weight: normal;
+        }
+
+        .e-comercial {
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            color: #C71585;
+            margin: -20px 0;
+            font-weight: normal;
+        }
+
+        .titulo-secundario {
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            margin-top: 50px;
+            font-weight: normal;
+        }
 
         /* Contagem Regressiva */
-        .cronometro { display: flex; justify-content: center; margin-top: 20px; }
-        .caixa-tempo { border: 1px solid #C71585; padding: 15px 0; width: 80px; background-color: transparent; }
-        .caixa-tempo span { font-size: 32px; font-weight: bold; display: block; margin-bottom: 5px; }
-        .caixa-tempo p { font-size: 9px; text-transform: uppercase; margin: 0; letter-spacing: 1px; }
+        .cronometro {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .caixa-tempo {
+            border: 1px solid #C71585;
+            padding: 15px 0;
+            width: 80px;
+            background-color: transparent;
+        }
+
+        .caixa-tempo span {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .caixa-tempo p {
+            font-size: 9px;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 1px;
+        }
 
         /* Caixas de Formulário e Informações */
-        .conteudo { padding: 20px; }
-        .caixa { margin: 0 auto; padding: 30px; border-radius: 2px; width: 320px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        input, select, button.btn-confirma, .botao-loja { width: 100%; margin-top: 15px; padding: 12px; border: 1px solid #ddd; box-sizing: border-box; font-size: 14px; font-family: 'Montserrat', sans-serif; }
-        button.btn-confirma, .botao-loja { background: #C71585; color: white; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
-        
+        .conteudo {
+            padding: 20px;
+        }
+
+        .caixa {
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 2px;
+            width: 320px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        input,
+        select,
+        button.btn-confirma,
+        .botao-loja {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button.btn-confirma,
+        .botao-loja {
+            background: #C71585;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* Controle das Abas */
-        .aba { display: none; }
-        .aba.ativa { display: block; }
+        .aba {
+            display: none;
+        }
+
+        .aba.ativa {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="menu">
         <button onclick="mudarAba('inicio')">Início</button>
         <button onclick="mudarAba('rsvp')">Presença</button>
         <button onclick="mudarAba('presentes')">Presentes</button>
-        <button onclick="mudarAba('localizacao')">Localização</button>
     </div>
 
     <!-- Aba 1: Início com Nomes e Cronômetro -->
@@ -51,20 +154,38 @@
         <h1 class="nomes" style="margin-top: 1;">Luiza</h1>
 
         <h2 class="titulo-secundario">Até o grande dia</h2>
-        
+
         <div class="cronometro">
-            <div class="caixa-tempo"><span id="dias">0</span><p>Dias</p></div>
-            <div class="caixa-tempo"><span id="horas">0</span><p>Horas</p></div>
-            <div class="caixa-tempo"><span id="minutos">0</span><p>Min</p></div>
-            <div class="caixa-tempo"><span id="segundos">0</span><p>Seg</p></div>
+            <div class="caixa-tempo"><span id="dias">0</span>
+                <p>Dias</p>
+            </div>
+            <div class="caixa-tempo"><span id="horas">0</span>
+                <p>Horas</p>
+            </div>
+            <div class="caixa-tempo"><span id="minutos">0</span>
+                <p>Min</p>
+            </div>
+            <div class="caixa-tempo"><span id="segundos">0</span>
+                <p>Seg</p>
+            </div>
+        </div>
+        <div class="caixa">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                Localização</h2>
+            <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São
+                Paulo - SP</p>
+            <!-- Espaço para adicionar o mapa do Google futuramente -->
+            <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
         </div>
     </div>
 
     <!-- Aba 2: Localização -->
     <div id="localizacao" class="aba conteudo">
         <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Localização</h2>
-            <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São Paulo - SP</p>
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                Localização</h2>
+            <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São
+                Paulo - SP</p>
             <!-- Espaço para adicionar o mapa do Google futuramente -->
             <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
         </div>
@@ -73,7 +194,8 @@
     <!-- Aba 3: Presentes -->
     <div id="presentes" class="aba conteudo">
         <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Lista de Presentes</h2>
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                Lista de Presentes</h2>
             <p style="font-size: 14px;">Fique à vontade para escolher uma loja:</p>
             <a href="#" target="_blank" class="botao-loja">Amazon</a>
             <a href="#" target="_blank" class="botao-loja">Magazine Luiza</a>
@@ -83,9 +205,12 @@
     <!-- Aba 4: Confirmação -->
     <div id="rsvp" class="aba conteudo">
         <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Confirme sua Presença</h2>
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                Confirme sua Presença</h2>
             <form id="formRsvp">
-                <input type="text" id="nome" placeholder="Seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')">
+                <input type="text" id="nome" placeholder="Seu nome completo" required
+                    oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
+                    oninput="this.setCustomValidity('')">
                 <select id="vaiComparecer">
                     <option value="true">Vou comparecer</option>
                     <option value="false">Não poderei ir</option>
@@ -104,8 +229,8 @@
 
         // Função do Cronômetro
         const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
-        
-        setInterval(function() {
+
+        setInterval(function () {
             const agora = new Date().getTime();
             const distancia = dataCasamento - agora;
 
@@ -118,7 +243,7 @@
         // Função de envio de dados
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
-            evento.preventDefault(); 
+            evento.preventDefault();
             const nome = document.getElementById('nome').value;
             const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
@@ -129,8 +254,9 @@
             });
 
             alert('Resposta salva com sucesso!');
-            form.reset(); 
+            form.reset();
         });
     </script>
 </body>
+
 </html>
