@@ -12,7 +12,23 @@
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block"
         rel="stylesheet">
     <style>
-        /* Evita o flash de fontes não estilizadas */
+        /* Ajusta o cursor para a seta padrão em todo o site */
+        * {
+            cursor: default;
+        }
+
+        /* Mantém o cursor correto nos botões, links e campos digitáveis */
+        button,
+        a,
+        input,
+        select {
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            cursor: text;
+        }
+
         /* Impede o aparecimento do cursor de escrita nos textos */
         body {
             user-select: none;
