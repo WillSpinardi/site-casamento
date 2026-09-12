@@ -13,6 +13,21 @@
         rel="stylesheet">
     <style>
         /* Evita o flash de fontes não estilizadas */
+        /* Impede o aparecimento do cursor de escrita nos textos */
+        body {
+            user-select: none;
+            /* Impede a seleção de texto e o cursor de escrita */
+            -webkit-user-select: none;
+        }
+
+        /* Mantém o cursor de escrita ativo apenas onde realmente dá para digitar */
+        input,
+        select,
+        textarea {
+            user-select: auto;
+            -webkit-user-select: auto;
+        }
+
         .wf-loading * {
             opacity: 0;
         }
@@ -492,43 +507,43 @@
             </div>
         </div>
     </div>
-        <script>
-            function mudarAba(idDaAba, elemento) {
-                document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
-                document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
+    <script>
+        function mudarAba(idDaAba, elemento) {
+            document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
+            document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
 
-                document.getElementById(idDaAba).classList.add('ativa');
-                elemento.classList.add('ativo');
-            }
+            document.getElementById(idDaAba).classList.add('ativa');
+            elemento.classList.add('ativo');
+        }
 
-            const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
+        const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
 
-            setInterval(function () {
-                const agora = new Date().getTime();
-                const distancia = dataCasamento - agora;
+        setInterval(function () {
+            const agora = new Date().getTime();
+            const distancia = dataCasamento - agora;
 
-                document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24));
-                document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
-            }, 1000);
+            document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
+        }, 1000);
 
-            const form = document.getElementById('formRsvp');
-            form.addEventListener('submit', async (evento) => {
-                evento.preventDefault();
-                const nome = document.getElementById('nome').value;
-                const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
+        const form = document.getElementById('formRsvp');
+        form.addEventListener('submit', async (evento) => {
+            evento.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-                await fetch('http://localhost:3000/rsvp', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, vaiComparecer })
-                });
-
-                alert('Resposta salva com sucesso!');
-                form.reset();
+            await fetch('http://localhost:3000/rsvp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, vaiComparecer })
             });
-       </script>
+
+            alert('Resposta salva com sucesso!');
+            form.reset();
+        });
+    </script>
 </body>
 
 </html>
