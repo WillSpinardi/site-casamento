@@ -452,25 +452,64 @@
     </div> <!-- FIM DA ABA INÍCIO -->
 
     <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
-    <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
-        <div class="caixa">
-            <h2
-                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">
-                Confirme sua Presença</h2>
-            <form id="formRsvp">
-                <input type="text" id="nome" placeholder="Seu nome completo" required
-                    oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
-                    oninput="this.setCustomValidity('')">
-                <select id="vaiComparecer">
-                    <option value="true">Vou comparecer</option>
-                    <option value="false">Não poderei ir</option>
-                </select>
-                <button type="submit" class="btn-confirma">Confirmar</button>
-            </form>
+    <div id="rsvp" class="aba conteudo" style="margin-top: 20px; padding: 0;">
+
+        <div
+            style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background-color: #FAF7F6; padding: 40px 20px; gap: 20px; min-height: 80vh;">
+
+            <!-- Foto da Esquerda -->
+            <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+                <img src="foto-rsvp-1.jpg" alt="William e Luiza" loading="lazy"
+                    style="width: 100%; max-width: 280px; height: 420px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            </div>
+
+            <!-- Conteúdo Centralizado (RSVP) -->
+            <div
+                style="flex: 1.2; min-width: 280px; max-width: 450px; text-align: center; margin: 0 auto; padding: 20px;">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068; line-height: 1;">
+                    RSVP
+                </h2>
+
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #777777; margin: 15px 0 5px 0;">
+                    Por favor, confirme até
+                </p>
+
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 600; color: #333333; margin: 0 0 30px 0;">
+                    10 DE SETEMBRO DE 2026
+                </p>
+
+                <!-- Formulário -->
+                <form id="formRsvp" style="max-width: 320px; margin: 0 auto;">
+                    <input type="text" id="nome" placeholder="Seu nome completo" required
+                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
+                        oninput="this.setCustomValidity('')"
+                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
+
+                    <select id="vaiComparecer"
+                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
+                        <option value="true">Sim, irei comparecer</option>
+                        <option value="false">Desculpe, não poderei ir</option>
+                    </select>
+
+                    <button type="submit" class="btn-confirma" style="margin-top: 20px; letter-spacing: 2px;">
+                        Confirmar
+                    </button>
+                </form>
+            </div>
+
+            <!-- Foto da Direita -->
+            <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+                <img src="foto-rsvp-2.jpg" alt="Mãos com alianças" loading="lazy"
+                    style="width: 100%; max-width: 280px; height: 420px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            </div>
+
         </div>
+
     </div>
 
-    <!-- ABA 3: PRESENTES -->
     <!-- ABA 3: PRESENTES -->
     <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
         <div class="caixa" style="max-width: 600px; width: 100%; box-sizing: border-box;">
