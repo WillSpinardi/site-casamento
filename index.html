@@ -8,456 +8,443 @@
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
 
     <style>
-        /* Ajusta o cursor apenas nos textos */
-        /* === COLE O CÓDIGO NOVO AQUI (ANTES DE 
-    </style>) === */
-    @media (max-width: 768px) {
-    .header-topo {
-    flex-direction: column;
-    gap: 12px;
-    padding: 15px 10px;
-    }
+        /* Cursor apenas nos textos */
+        p, h1, h2, span {
+            cursor: default;
+        }
 
-    .logo-topo {
-    font-size: 24px;
-    }
+        /* Mantém o cursor correto nos elementos interativos */
+        button, a, input, select {
+            cursor: pointer;
+        }
 
-    .menu-botoes button {
-    padding: 6px 10px;
-    font-size: 10px;
-    letter-spacing: 1px;
-    }
+        input[type="text"] {
+            cursor: text;
+        }
 
-    .banner-destaque {
-    height: 60vh;
-    }
+        /* Fundo Off-White e Tipografia */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            background-color: #FAF7F6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .texto-banner h1 {
-    font-size: 55px;
-    }
+        /* Barra Superior */
+        .header-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #FAF7F6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #F5E6E8;
+        }
 
-    .texto-banner .e-comercial {
-    font-size: 30px;
-    }
+        .logo-topo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: #D10068;
+            font-weight: normal;
+        }
 
-    .texto-banner .data h2 {
-    font-size: 14px;
-    }
+        .menu-botoes {
+            display: flex;
+            gap: 15px;
+        }
 
-    .cronometro {
-    gap: 8px;
-    }
+        .menu-botoes button {
+            background: none;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #555555;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
 
-    .caixa-tempo {
-    width: 65px;
-    padding: 10px 5px;
-    }
+        .menu-botoes button.ativo {
+            background-color: #D10068;
+            color: #FFFFFF;
+        }
 
-    .caixa-tempo span {
-    font-size: 22px;
-    }
+        .menu-botoes button:hover {
+            color: #D10068;
+        }
 
-    .caixa-tempo p {
-    font-size: 8px;
-    }
+        .menu-botoes button.ativo:hover {
+            color: #FFFFFF;
+        }
 
-    .secao-polaroid {
-    padding: 30px 15px;
-    gap: 20px;
-    }
+        /* Banner Principal */
+        .banner-destaque {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-    .container-polaroid {
-    flex-direction: column;
-    align-items: center;
-    }
+        .banner-destaque::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('banner-principal.jpg');
+            background-size: cover;
+            background-position: center 37%;
+            filter: grayscale(100%) blur(1px);
+            transform: scale(1.05);
+            z-index: 1;
+        }
 
-    .polaroid-esquerda, .polaroid-direita {
-    transform: none !important;
-    margin-top: 0 !important;
-    }
+        .banner-destaque::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
 
-    .foto-polaroid img {
-    width: 220px;
-    height: 260px;
-    }
+        .texto-banner {
+            position: relative;
+            z-index: 3;
+            color: #FFFFFF;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
 
-    .texto-polaroid {
-    text-align: center;
-    }
+        .texto-banner h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 85px;
+            margin: 0;
+            font-weight: 400;
+            line-height: 0.9;
+            color: #FFFFFF;
+        }
 
-    #rsvp > div {
-    flex-direction: column;
-    padding: 20px 10px !important;
-    }
+        .texto-banner .e-comercial {
+            font-family: 'Great Vibes', cursive;
+            font-size: 40px;
+            margin: 10px 0;
+            color: #F8ECEE;
+        }
 
-    #rsvp > div > div:last-child {
-    display: none;
-    }
+        .texto-banner .data {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
 
-    #rsvp img {
-    max-width: 220px !important;
-    height: 280px !important;
-    }
+        /* Cronômetro */
+        .secao-cronometro {
+            padding: 50px 20px 30px 20px;
+            text-align: center;
+        }
 
-    #presentes .caixa {
-    padding: 20px 15px !important;
-    }
-    }
-    </style> <!-- O código entra antes desta linha -->
-</head>
-p,
-h1,
-h2,
-span {
-cursor: default;
-}
+        .titulo-secundario {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            margin: 0 0 25px 0;
+            font-weight: normal;
+            color: #D10068;
+            text-align: center;
+        }
 
-/* Mantém o cursor correto nos elementos interativos */
-button,
-a,
-input,
-select {
-cursor: pointer;
-}
+        .cronometro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 0 auto 30px auto;
+        }
 
-input[type="text"] {
-cursor: text;
-}
+        .caixa-tempo {
+            background-color: #FFFFFF;
+            border: 1px solid #F0D5DA;
+            border-top: 3px solid #D10068;
+            padding: 16px 12px 12px 12px;
+            width: 85px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(209, 0, 104, 0.08);
+            transition: transform 0.2s ease;
+        }
 
-/* Fundo Off-White e Tipografia */
-body {
-font-family: 'Montserrat', sans-serif;
-text-align: center;
-background-color: #FAF7F6;
-color: #333333;
-margin: 0;
-padding: 0;
--webkit-font-smoothing: antialiased;
-}
+        .caixa-tempo:hover {
+            transform: translateY(-3px);
+        }
 
-/* Barra Superior */
-.header-topo {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 40px;
-background-color: #FAF7F6;
-position: sticky;
-top: 0;
-z-index: 100;
-border-bottom: 1px solid #F5E6E8;
-}
+        .caixa-tempo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+            color: #D10068;
+            line-height: 1;
+        }
 
-.logo-topo {
-font-family: 'Great Vibes', cursive;
-font-size: 28px;
-color: #D10068;
-font-weight: normal;
-}
+        .caixa-tempo p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 1.5px;
+            color: #777777;
+        }
 
-.menu-botoes {
-display: flex;
-gap: 15px;
-}
+        /* Seção Polaroid */
+        .secao-polaroid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+            background-color: #F8ECEE;
+            border-top: 1px solid #F0D5DA;
+            border-bottom: 1px solid #F0D5DA;
+        }
 
-.menu-botoes button {
-background: none;
-border: none;
-font-family: 'Montserrat', sans-serif;
-font-size: 11px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: #555555;
-padding: 8px 16px;
-cursor: pointer;
-transition: all 0.3s ease;
-border-radius: 4px;
-}
+        .container-polaroid {
+            position: relative;
+            display: flex;
+            gap: 15px;
+        }
 
-.menu-botoes button.ativo {
-background-color: #D10068;
-color: #FFFFFF;
-}
+        .foto-polaroid {
+            background: #FFFFFF;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
 
-.menu-botoes button:hover {
-color: #D10068;
-}
+        .foto-polaroid img {
+            width: 160px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
 
-.menu-botoes button.ativo:hover {
-color: #FFFFFF;
-}
+        .polaroid-esquerda {
+            transform: rotate(-6deg);
+        }
 
-/* Banner Principal */
-.banner-destaque {
-position: relative;
-width: 100%;
-height: 85vh;
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-}
+        .polaroid-direita {
+            transform: rotate(4deg);
+            margin-top: 20px;
+        }
 
-.banner-destaque::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-image: url('banner-principal.jpg');
-background-size: cover;
-background-position: center 37%;
-filter: grayscale(100%) blur(1px);
-transform: scale(1.05);
-z-index: 1;
-}
+        .foto-polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 5;
+        }
 
-.banner-destaque::after {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.3);
-z-index: 2;
-}
+        .texto-polaroid {
+            max-width: 380px;
+            text-align: left;
+        }
 
-.texto-banner {
-position: relative;
-z-index: 3;
-color: #FFFFFF;
-text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
+        .texto-polaroid h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 45px;
+            margin: 0 0 10px 0;
+            color: #D10068;
+            font-weight: normal;
+        }
 
-.texto-banner h1 {
-font-family: 'Great Vibes', cursive;
-font-size: 85px;
-margin: 0;
-font-weight: 400;
-line-height: 0.9;
-color: #FFFFFF;
-}
+        .texto-polaroid p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444444;
+            margin: 0;
+        }
 
-.texto-banner .e-comercial {
-font-family: 'Great Vibes', cursive;
-font-size: 40px;
-margin: 10px 0;
-color: #F8ECEE;
-}
+        /* Caixas de Conteúdo */
+        .conteudo {
+            padding: 20px;
+        }
 
-.texto-banner .data {
-font-family: 'Montserrat', sans-serif;
-font-size: 14px;
-letter-spacing: 4px;
-margin-top: 20px;
-color: #FFFFFF;
-}
+        .caixa {
+            margin: 0 auto;
+            padding: 35px 30px;
+            border-radius: 6px;
+            width: 320px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
+            border: 1px solid #F5E6E8;
+        }
 
-/* Cronômetro */
-.secao-cronometro {
-padding: 50px 20px 30px 20px;
-text-align: center;
-}
+        .caixa h2 {
+            color: #D10068;
+        }
 
-.titulo-secundario {
-font-family: 'Great Vibes', cursive;
-font-size: 48px;
-margin: 0 0 25px 0;
-font-weight: normal;
-color: #D10068;
-text-align: center;
-}
+        input, select {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: 1px solid #E6D0D4;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF7F6;
+        }
 
-.cronometro {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 15px;
-margin: 0 auto 30px auto;
-}
+        button.btn-confirma, .botao-loja {
+            width: 100%;
+            margin-top: 15px;
+            padding: 14px;
+            background-color: #D10068;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            display: block;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
 
-.caixa-tempo {
-background-color: #FFFFFF;
-border: 1px solid #F0D5DA;
-border-top: 3px solid #D10068;
-padding: 16px 12px 12px 12px;
-width: 85px;
-border-radius: 8px;
-box-shadow: 0 4px 12px rgba(209, 0, 104, 0.08);
-transition: transform 0.2s ease;
-}
+        button.btn-confirma:hover, .botao-loja:hover {
+            background-color: #A80053;
+        }
 
-.caixa-tempo:hover {
-transform: translateY(-3px);
-}
+        a {
+            color: #D10068;
+        }
 
-.caixa-tempo span {
-font-family: 'Montserrat', sans-serif;
-font-size: 30px;
-font-weight: 700;
-display: block;
-margin-bottom: 4px;
-color: #D10068;
-line-height: 1;
-}
+        /* Controle das Abas */
+        .aba {
+            display: none;
+        }
 
-.caixa-tempo p {
-font-family: 'Montserrat', sans-serif;
-font-size: 10px;
-font-weight: 600;
-text-transform: uppercase;
-margin: 0;
-letter-spacing: 1.5px;
-color: #777777;
-}
+        .aba.ativa {
+            display: block;
+        }
 
-/* Seção Polaroid */
-.secao-polaroid {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
-gap: 40px;
-padding: 50px 20px;
-margin-bottom: 40px;
-background-color: #F8ECEE;
-border-top: 1px solid #F0D5DA;
-border-bottom: 1px solid #F0D5DA;
-}
+        /* Responsividade para Celulares */
+        @media (max-width: 768px) {
+            .header-topo {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 10px;
+            }
 
-.container-polaroid {
-position: relative;
-display: flex;
-gap: 15px;
-}
+            .logo-topo {
+                font-size: 24px;
+            }
 
-.foto-polaroid {
-background: #FFFFFF;
-padding: 12px 12px 35px 12px;
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-border-radius: 2px;
-transition: transform 0.3s ease;
-}
+            .menu-botoes button {
+                padding: 6px 10px;
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
 
-.foto-polaroid img {
-width: 160px;
-height: 200px;
-object-fit: cover;
-display: block;
-}
+            .banner-destaque {
+                height: 60vh;
+            }
 
-.polaroid-esquerda {
-transform: rotate(-6deg);
-}
+            .texto-banner h1 {
+                font-size: 55px;
+            }
 
-.polaroid-direita {
-transform: rotate(4deg);
-margin-top: 20px;
-}
+            .texto-banner .e-comercial {
+                font-size: 30px;
+            }
 
-.foto-polaroid:hover {
-transform: scale(1.05) rotate(0deg);
-z-index: 5;
-}
+            .texto-banner .data h2 {
+                font-size: 14px;
+            }
 
-.texto-polaroid {
-max-width: 380px;
-text-align: left;
-}
+            .cronometro {
+                gap: 8px;
+            }
 
-.texto-polaroid h2 {
-font-family: 'Great Vibes', cursive;
-font-size: 45px;
-margin: 0 0 10px 0;
-color: #D10068;
-font-weight: normal;
-}
+            .caixa-tempo {
+                width: 65px;
+                padding: 10px 5px;
+            }
 
-.texto-polaroid p {
-font-size: 14px;
-line-height: 1.6;
-color: #444444;
-margin: 0;
-}
+            .caixa-tempo span {
+                font-size: 22px;
+            }
 
-/* Caixas de Conteúdo */
-.conteudo {
-padding: 20px;
-}
+            .caixa-tempo p {
+                font-size: 8px;
+            }
 
-.caixa {
-margin: 0 auto;
-padding: 35px 30px;
-border-radius: 6px;
-width: 320px;
-background: #FFFFFF;
-box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
-border: 1px solid #F5E6E8;
-}
+            .secao-polaroid {
+                padding: 30px 15px;
+                gap: 20px;
+            }
 
-.caixa h2 {
-color: #D10068;
-}
+            .container-polaroid {
+                flex-direction: column;
+                align-items: center;
+            }
 
-input,
-select {
-width: 100%;
-margin-top: 15px;
-padding: 12px;
-border: 1px solid #E6D0D4;
-border-radius: 4px;
-box-sizing: border-box;
-font-size: 14px;
-font-family: 'Montserrat', sans-serif;
-background-color: #FAF7F6;
-}
+            .polaroid-esquerda, .polaroid-direita {
+                transform: none !important;
+                margin-top: 0 !important;
+            }
 
-button.btn-confirma,
-.botao-loja {
-width: 100%;
-margin-top: 15px;
-padding: 14px;
-background-color: #D10068;
-color: #FFFFFF;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-text-transform: uppercase;
-letter-spacing: 1.5px;
-font-size: 13px;
-display: block;
-text-decoration: none;
-box-sizing: border-box;
-font-family: 'Montserrat', sans-serif;
-font-weight: 600;
-transition: background-color 0.3s ease;
-}
+            .foto-polaroid img {
+                width: 220px;
+                height: 260px;
+            }
 
-button.btn-confirma:hover,
-.botao-loja:hover {
-background-color: #A80053;
-}
+            .texto-polaroid {
+                text-align: center;
+            }
 
-a {
-color: #D10068;
-}
+            #rsvp > div {
+                flex-direction: column;
+                padding: 20px 10px !important;
+            }
 
-/* Controle das Abas */
-.aba {
-display: none;
-}
+            #rsvp > div > div:last-child {
+                display: none;
+            }
 
-.aba.ativa {
-display: block;
-}
-</style>
+            #rsvp img {
+                max-width: 220px !important;
+                height: 280px !important;
+            }
+
+            #presentes .caixa {
+                padding: 20px 15px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -522,147 +509,100 @@ display: block;
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
-                        dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
                 </div>
             </section>
 
             <!-- Localização -->
-            <div
-                style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
+            <div style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
                 <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
-                    <h2
-                        style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                        Localização</h2>
-                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova
-                        Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
+                    <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Localização</h2>
+                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
                     <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </div> <!-- FIM DA ABA INÍCIO -->
+    </div>
 
     <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
     <div id="rsvp" class="aba conteudo" style="margin-top: 20px; padding: 0;">
-
-        <div
-            style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background-color: #FAF7F6; padding: 40px 20px; gap: 20px; min-height: 80vh;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background-color: #FAF7F6; padding: 40px 20px; gap: 20px; min-height: 80vh;">
             <!-- Foto da Esquerda -->
             <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-                <img src="banner-rsvp2.jpg" alt="William e Luiza" loading="lazy"
-                    style="width: 100%; max-width: 400px; height: 600px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <img src="banner-rsvp2.jpg" alt="William e Luiza" loading="lazy" style="width: 100%; max-width: 400px; height: 600px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             </div>
 
             <!-- Conteúdo Centralizado (RSVP) -->
-            <div
-                style="flex: 1.2; min-width: 280px; max-width: 450px; text-align: center; margin: 0 auto; padding: 20px;">
-                <h2
-                    style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068; line-height: 1;">
-                    RSVP
-                </h2>
-
-                <p
-                    style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #777777; margin: 15px 0 5px 0;">
-                    Por favor, confirme até
-                </p>
-
-                <p
-                    style="font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 600; color: #333333; margin: 0 0 30px 0;">
-                    30 DE SETEMBRO DE 2026
-                </p>
+            <div style="flex: 1.2; min-width: 280px; max-width: 450px; text-align: center; margin: 0 auto; padding: 20px;">
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068; line-height: 1;">RSVP</h2>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #777777; margin: 15px 0 5px 0;">Por favor, confirme até</p>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 600; color: #333333; margin: 0 0 30px 0;">30 DE SETEMBRO DE 2026</p>
 
                 <!-- Formulário -->
                 <form id="formRsvp" style="max-width: 320px; margin: 0 auto;">
-                    <input type="text" id="nome" placeholder="Seu nome completo" required
-                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
-                        oninput="this.setCustomValidity('')"
-                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
+                    <input type="text" id="nome" placeholder="Seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')" style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
 
-                    <select id="vaiComparecer"
-                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
+                    <select id="vaiComparecer" style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
                         <option value="true">Sim, irei comparecer</option>
                         <option value="false">Desculpe, não poderei ir</option>
                     </select>
 
-                    <button type="submit" class="btn-confirma" style="margin-top: 20px; letter-spacing: 2px;">
-                        Confirmar
-                    </button>
+                    <button type="submit" class="btn-confirma" style="margin-top: 20px; letter-spacing: 2px;">Confirmar</button>
                 </form>
             </div>
 
             <!-- Foto da Direita -->
             <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-                <img src="banner-rsvp1.jpg" alt="Mãos com alianças" loading="lazy"
-                    style="width: 100%; max-width: 400px; height: 600px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <img src="banner-rsvp1.jpg" alt="Mãos com alianças" loading="lazy" style="width: 100%; max-width: 400px; height: 600px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             </div>
-
         </div>
-
     </div>
 
     <!-- ABA 3: PRESENTES -->
     <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
         <div class="caixa" style="max-width: 600px; width: 100%; box-sizing: border-box;">
-            <h2
-                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">
-                Lista de Presentes</h2>
-            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">
-                Sua presença é o nosso maior presente! Caso queira nos abençoar com uma contribuição para a nossa nova
-                fase, escolha uma das sugestões abaixo ou faça um Pix de qualquer valor:
-            </p>
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">Lista de Presentes</h2>
+            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">Sua presença é o nosso maior presente! Caso queira nos abençoar com uma contribuição para a nossa nova fase, escolha uma das sugestões abaixo ou faça um Pix de qualquer valor:</p>
 
             <!-- Quadro com a Chave PIX -->
-            <div
-                style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
-                <p
-                    style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">
-                    Nossa Chave Pix (E-mail ou CPF)</p>
-                <div
-                    style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">
-                    seu-email@email.com
-                </div>
+            <div style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
+                <p style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">Nossa Chave Pix (E-mail ou CPF)</p>
+                <div style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">seu-email@email.com</div>
                 <p style="font-size: 12px; color: #777777; margin: 10px 0 0 0;">Favorecido: William / Luiza</p>
             </div>
 
             <!-- Sugestões de Presentes Simbólicos -->
             <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">☕</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Café da Manhã</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 50,00</p>
                 </div>
 
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">🍽️</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Jantar Romântico</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 150,00</p>
                 </div>
 
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">✈️</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Passeio na Lua de Mel</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 250,00</p>
                 </div>
 
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">🛒</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Ajuda na Mobília</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 500,00</p>
                 </div>
-
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
     <script>
         function mudarAba(idDaAba, elemento) {
             document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
