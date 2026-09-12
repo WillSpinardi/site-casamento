@@ -10,13 +10,16 @@
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
         rel="stylesheet">
     <style>
+        <style>
+
+        /* Suavização global de fontes */
         body {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            background-color: #F8F5E9;
-            /* Fundo Bege Claro suave */
-            color: #2d3734;
-            /* Letras em tom escuro para boa leitura */
+            background-color: #FA7F6;
+            /* Off-White / Creme principal */
+            color: #333333;
+            /* Texto escuro elegante para máxima leitura */
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
@@ -30,16 +33,21 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background-color: #F8F5E9;
+            background-color: #FA7F6;
+            /* Off-White / Creme */
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid #F5E6E8;
+            /* Linha rosa-chá muito sutil */
         }
 
         .logo-topo {
             font-family: 'Great Vibes', cursive;
-            font-size: 26px;
-            color: #2D3732;
+            font-size: 28px;
+            color: #D10068;
+            /* Fúcsia para o nome dos noivos */
+            font-weight: normal;
         }
 
         .menu-botoes {
@@ -54,21 +62,23 @@
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #2D3732;
+            color: #555555;
             padding: 8px 16px;
             cursor: pointer;
             transition: all 0.3s ease;
+            border-radius: 4px;
         }
 
-        /* Botão selecionado com fundo Fúcsia sutil e texto branco */
+        /* Botão Selecionado / Ativo em Fúcsia com texto branco */
         .menu-botoes button.ativo {
             background-color: #D10068;
+            /* Fúcsia */
             color: #FFFFFF;
-            border-radius: 2px;
         }
 
         .menu-botoes button:hover {
             color: #D10068;
+            /* Fúcsia no hover */
         }
 
         .menu-botoes button.ativo:hover {
@@ -80,10 +90,10 @@
             position: relative;
             width: 100%;
             height: 85vh;
-            background-image: url('file:///C:/Users/spinardi/Downloads/lw-10.jpg');
-            /* Substitua pela foto de capa horizontal */
+            background-image: url('banner-principal.jpg');
             background-size: cover;
             background-position: center 37%;
+            /* Mantém o ajuste de altura do rosto */
             filter: grayscale(100%);
             display: flex;
             justify-content: center;
@@ -103,8 +113,8 @@
         .texto-banner {
             position: relative;
             z-index: 2;
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            color: #FFFFFF;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
 
         .texto-banner h1 {
@@ -113,13 +123,15 @@
             margin: 0;
             font-weight: normal;
             line-height: 0.9;
+            color: #FFFFFF;
         }
 
         .texto-banner .e-comercial {
             font-family: 'Great Vibes', cursive;
             font-size: 40px;
             margin: 10px 0;
-            color: #F8F5E9;
+            color: #F8ECEE;
+            /* Rosa-chá sutil para destaque leve */
         }
 
         .texto-banner .data {
@@ -127,30 +139,36 @@
             font-size: 14px;
             letter-spacing: 4px;
             margin-top: 20px;
+            color: #FFFFFF;
         }
 
-        /* Titulos das seções em tom escuro */
+        /* Títulos em Fúcsia para destaque */
         .titulo-secundario {
             font-family: 'Great Vibes', cursive;
             font-size: 45px;
             margin-top: 50px;
             font-weight: normal;
-            color: #2D3732;
+            color: #D10068;
+            /* Fúcsia */
         }
 
-        /* Cronômetro com bordas em Fúcsia */
+        /* Cronômetro com toques Fúcsia e fundo Rosa-Chá */
         .cronometro {
             display: flex;
             justify-content: center;
             margin-top: 20px;
             margin-bottom: 50px;
+            gap: 10px;
         }
 
         .caixa-tempo {
             border: 1px solid #D10068;
+            /* Borda Fúcsia */
             padding: 15px 0;
             width: 80px;
-            background-color: transparent;
+            background-color: #F8ECEE;
+            /* Rosa-chá bem claro */
+            border-radius: 4px;
         }
 
         .caixa-tempo span {
@@ -159,6 +177,7 @@
             display: block;
             margin-bottom: 5px;
             color: #D10068;
+            /* Números em Fúcsia */
         }
 
         .caixa-tempo p {
@@ -166,18 +185,22 @@
             text-transform: uppercase;
             margin: 0;
             letter-spacing: 1px;
-            color: #2D3732;
+            color: #444444;
         }
 
-        /* Seção Polaroid */
+        /* Seção Nossa História com Fundo Rosa-Chá / Blush */
         .secao-polaroid {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 40px;
-            padding: 40px 20px;
+            padding: 50px 20px;
             margin-bottom: 40px;
+            background-color: #F8ECEE;
+            /* Fundo Rosa-chá / Blush */
+            border-top: 1px solid #F0D5DA;
+            border-bottom: 1px solid #F0D5DA;
         }
 
         .container-polaroid {
@@ -187,9 +210,9 @@
         }
 
         .foto-polaroid {
-            background: #ffffff;
+            background: #FFFFFF;
             padding: 12px 12px 35px 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             border-radius: 2px;
             transition: transform 0.3s ease;
         }
@@ -224,29 +247,37 @@
             font-family: 'Great Vibes', cursive;
             font-size: 45px;
             margin: 0 0 10px 0;
-            color: #2D3732;
+            color: #D10068;
+            /* Título Fúcsia */
             font-weight: normal;
         }
 
         .texto-polaroid p {
             font-size: 14px;
             line-height: 1.6;
-            color: #555555;
+            color: #444444;
             margin: 0;
         }
 
-        /* Formulário e Caixas */
+        /* Caixas brancas limpas para destacar sobre o creme/rosa */
         .conteudo {
             padding: 20px;
         }
 
         .caixa {
             margin: 0 auto;
-            padding: 30px;
-            border-radius: 2px;
+            padding: 35px 30px;
+            border-radius: 6px;
             width: 320px;
-            background: #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
+            /* Sombra sutil fúcsia */
+            border: 1px solid #F5E6E8;
+        }
+
+        .caixa h2 {
+            color: #D10068;
+            /* Fúcsia */
         }
 
         input,
@@ -254,35 +285,46 @@
             width: 100%;
             margin-top: 15px;
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #E6D0D4;
+            border-radius: 4px;
             box-sizing: border-box;
             font-size: 14px;
             font-family: 'Montserrat', sans-serif;
+            background-color: #FA7F6;
         }
 
-        /* Botões de Ação em Fúcsia */
+        /* Botões Principais em Fúcsia */
         button.btn-confirma,
         .botao-loja {
             width: 100%;
             margin-top: 15px;
-            padding: 12px;
-            background: #D10068;
-            color: white;
+            padding: 14px;
+            background-color: #D10068;
+            /* Fúcsia principal */
+            color: #FFFFFF;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-size: 13px;
             display: block;
             text-decoration: none;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         button.btn-confirma:hover,
         .botao-loja:hover {
-            background: #A80053;
+            background-color: #A80053;
+            /* Fúcsia mais escuro no clique/hover */
+        }
+
+        /* Links de texto em Fúcsia */
+        a {
+            color: #D10068;
         }
 
         /* Controle das Abas */
