@@ -6,20 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William & Luiza</title>
     <!-- Fontes do Google -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
         rel="stylesheet">
     <style>
-        <style>
-
-        /* Suavização global de fontes */
+        /* Suavização global de fontes e Fundo Off-White */
         body {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            background-color: #FA7F6;
-            /* Off-White / Creme principal */
+            background-color: #FAF7F6; /* Off-White / Creme */
             color: #333333;
-            /* Texto escuro elegante para máxima leitura */
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
@@ -33,20 +28,17 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 40px;
-            background-color: #FA7F6;
-            /* Off-White / Creme */
+            background-color: #FAF7F6;
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid #F5E6E8;
-            /* Linha rosa-chá muito sutil */
         }
 
         .logo-topo {
             font-family: 'Great Vibes', cursive;
             font-size: 28px;
-            color: #D10068;
-            /* Fúcsia para o nome dos noivos */
+            color: #D10068; /* Fúcsia */
             font-weight: normal;
         }
 
@@ -69,16 +61,14 @@
             border-radius: 4px;
         }
 
-        /* Botão Selecionado / Ativo em Fúcsia com texto branco */
+        /* Botão Ativo em Fúcsia */
         .menu-botoes button.ativo {
             background-color: #D10068;
-            /* Fúcsia */
             color: #FFFFFF;
         }
 
         .menu-botoes button:hover {
             color: #D10068;
-            /* Fúcsia no hover */
         }
 
         .menu-botoes button.ativo:hover {
@@ -90,10 +80,9 @@
             position: relative;
             width: 100%;
             height: 85vh;
-            background-image: url('banner-principal.jpg');
+            background-image: url('lw-10.jpg');
             background-size: cover;
             background-position: center 37%;
-            /* Mantém o ajuste de altura do rosto */
             filter: grayscale(100%);
             display: flex;
             justify-content: center;
@@ -103,10 +92,7 @@
         .banner-destaque::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.3);
         }
 
@@ -121,7 +107,7 @@
             font-family: 'Great Vibes', cursive;
             font-size: 85px;
             margin: 0;
-            font-weight: normal;
+            font-weight: 400;
             line-height: 0.9;
             color: #FFFFFF;
         }
@@ -131,7 +117,6 @@
             font-size: 40px;
             margin: 10px 0;
             color: #F8ECEE;
-            /* Rosa-chá sutil para destaque leve */
         }
 
         .texto-banner .data {
@@ -142,53 +127,66 @@
             color: #FFFFFF;
         }
 
-        /* Títulos em Fúcsia para destaque */
-        .titulo-secundario {
-            font-family: 'Great Vibes', cursive;
-            font-size: 45px;
-            margin-top: 50px;
-            font-weight: normal;
-            color: #D10068;
-            /* Fúcsia */
+        /* Estrutura Centralizada da Seção do Cronômetro */
+        .secao-cronometro {
+            padding: 50px 20px 30px 20px;
+            text-align: center;
         }
 
-        /* Cronômetro com toques Fúcsia e fundo Rosa-Chá */
+        .titulo-secundario {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            margin: 0 0 25px 0;
+            font-weight: normal;
+            color: #D10068;
+            text-align: center;
+        }
+
+        /* Novo Modelo de Cronômetro (Moderno e Elegante) */
         .cronometro {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 50px;
-            gap: 10px;
+            align-items: center;
+            gap: 15px;
+            margin: 0 auto 30px auto;
         }
 
         .caixa-tempo {
-            border: 1px solid #D10068;
-            /* Borda Fúcsia */
-            padding: 15px 0;
-            width: 80px;
-            background-color: #F8ECEE;
-            /* Rosa-chá bem claro */
-            border-radius: 4px;
+            background-color: #FFFFFF;
+            border: 1px solid #F0D5DA;
+            border-top: 3px solid #D10068; /* Detalhe fúcsia no topo */
+            padding: 16px 12px 12px 12px;
+            width: 85px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(209, 0, 104, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .caixa-tempo:hover {
+            transform: translateY(-3px);
         }
 
         .caixa-tempo span {
-            font-size: 32px;
-            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: #D10068;
-            /* Números em Fúcsia */
+            line-height: 1;
         }
 
         .caixa-tempo p {
-            font-size: 9px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
             text-transform: uppercase;
             margin: 0;
-            letter-spacing: 1px;
-            color: #444444;
+            letter-spacing: 1.5px;
+            color: #777777;
         }
 
-        /* Seção Nossa História com Fundo Rosa-Chá / Blush */
+        /* Seção Polaroid com Fundo Rosa-Chá */
         .secao-polaroid {
             display: flex;
             flex-wrap: wrap;
@@ -198,7 +196,6 @@
             padding: 50px 20px;
             margin-bottom: 40px;
             background-color: #F8ECEE;
-            /* Fundo Rosa-chá / Blush */
             border-top: 1px solid #F0D5DA;
             border-bottom: 1px solid #F0D5DA;
         }
@@ -248,7 +245,6 @@
             font-size: 45px;
             margin: 0 0 10px 0;
             color: #D10068;
-            /* Título Fúcsia */
             font-weight: normal;
         }
 
@@ -259,7 +255,7 @@
             margin: 0;
         }
 
-        /* Caixas brancas limpas para destacar sobre o creme/rosa */
+        /* Caixas de Conteúdo */
         .conteudo {
             padding: 20px;
         }
@@ -271,17 +267,14 @@
             width: 320px;
             background: #FFFFFF;
             box-shadow: 0 4px 15px rgba(209, 0, 104, 0.06);
-            /* Sombra sutil fúcsia */
             border: 1px solid #F5E6E8;
         }
 
         .caixa h2 {
             color: #D10068;
-            /* Fúcsia */
         }
 
-        input,
-        select {
+        input, select {
             width: 100%;
             margin-top: 15px;
             padding: 12px;
@@ -290,17 +283,16 @@
             box-sizing: border-box;
             font-size: 14px;
             font-family: 'Montserrat', sans-serif;
-            background-color: #FA7F6;
+            background-color: #FAF7F6;
         }
 
-        /* Botões Principais em Fúcsia */
+        /* Botões em Fúcsia */
         button.btn-confirma,
         .botao-loja {
             width: 100%;
             margin-top: 15px;
             padding: 14px;
             background-color: #D10068;
-            /* Fúcsia principal */
             color: #FFFFFF;
             border: none;
             border-radius: 4px;
@@ -319,10 +311,8 @@
         button.btn-confirma:hover,
         .botao-loja:hover {
             background-color: #A80053;
-            /* Fúcsia mais escuro no clique/hover */
         }
 
-        /* Links de texto em Fúcsia */
         a {
             color: #D10068;
         }
@@ -361,49 +351,53 @@
             </div>
         </section>
 
-        <div class="conteudo">
+        <!-- Seção do Cronômetro Centralizada -->
+        <div class="secao-cronometro">
             <h2 class="titulo-secundario">Até o grande dia</h2>
 
             <div class="cronometro">
-                <div class="caixa-tempo"><span id="dias">0</span>
+                <div class="caixa-tempo">
+                    <span id="dias">0</span>
                     <p>Dias</p>
                 </div>
-                <div class="caixa-tempo"><span id="horas">0</span>
+                <div class="caixa-tempo">
+                    <span id="horas">0</span>
                     <p>Horas</p>
                 </div>
-                <div class="caixa-tempo"><span id="minutos">0</span>
+                <div class="caixa-tempo">
+                    <span id="minutos">0</span>
                     <p>Min</p>
                 </div>
-                <div class="caixa-tempo"><span id="segundos">0</span>
+                <div class="caixa-tempo">
+                    <span id="segundos">0</span>
                     <p>Seg</p>
                 </div>
             </div>
+        </div>
 
+        <div class="conteudo" style="padding-top: 0;">
             <!-- Seção Polaroid -->
             <section class="secao-polaroid">
                 <div class="container-polaroid">
                     <div class="foto-polaroid polaroid-esquerda">
-                        <!-- SUA FOTO VERTICAL ENTRA AQUI -->
-                        <img src="sua-foto.jpg" alt="William e Luiza" loading="lazy">
+                        <img src="polaroid1.jpeg" alt="William e Luiza 1" loading="lazy">
                     </div>
                     <div class="foto-polaroid polaroid-direita">
-                        <img src="foto2.jpg" alt="Foto Pre-Wedding 2" loading="lazy">
+                        <img src="polaroid2.jpg
+                        " alt="William e Luiza 2" loading="lazy">
                     </div>
                 </div>
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
-                        dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
                 </div>
             </section>
 
             <div class="caixa">
-                <h2
-                    style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
                     Localização</h2>
-                <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 -
-                    Bairro<br>São Paulo - SP</p>
+                <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São Paulo - SP</p>
                 <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
             </div>
         </div>
@@ -432,9 +426,8 @@
         <div class="caixa">
             <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
                 Lista de Presentes</h2>
-            <p style="font-size: 14px;">Fique à vontade para escolher uma loja:</p>
+            <p style="font-size: 14px;">Fique à vontade para escolher um presente:</p>
             <a href="#" target="_blank" class="botao-loja">Amazon</a>
-            <a href="#" target="_blank" class="botao-loja">Magazine Luiza</a>
         </div>
     </div>
 
