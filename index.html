@@ -38,8 +38,6 @@
             color: #C71585;
         }
 
-        /* Fúcsia */
-
         /* Textos Principais */
         .nomes {
             font-family: 'Great Vibes', cursive;
@@ -68,6 +66,7 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            margin-bottom: 50px;
         }
 
         .caixa-tempo {
@@ -89,6 +88,72 @@
             text-transform: uppercase;
             margin: 0;
             letter-spacing: 1px;
+        }
+
+        /* Seção Polaroid estilo layout */
+        .secao-polaroid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .container-polaroid {
+            position: relative;
+            display: flex;
+            gap: 15px;
+        }
+
+        .foto-polaroid {
+            background: #ffffff;
+            padding: 12px 12px 35px 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .foto-polaroid img {
+            width: 160px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .polaroid-esquerda {
+            transform: rotate(-6deg);
+        }
+
+        .polaroid-direita {
+            transform: rotate(4deg);
+            margin-top: 20px;
+        }
+
+        .foto-polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 5;
+        }
+
+        .texto-polaroid {
+            max-width: 380px;
+            text-align: left;
+        }
+
+        .texto-polaroid h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 45px;
+            margin: 0 0 10px 0;
+            color: #4A5B52;
+            font-weight: normal;
+        }
+
+        .texto-polaroid p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
         }
 
         /* Caixas de Formulário e Informações */
@@ -126,6 +191,8 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: block;
+            text-decoration: none;
         }
 
         /* Controle das Abas */
@@ -147,11 +214,11 @@
         <button onclick="mudarAba('presentes')">Presentes</button>
     </div>
 
-    <!-- Aba 1: Início com Nomes e Cronômetro -->
+    <!-- Aba 1: Início com Nomes, Cronômetro, Fotos e Localização -->
     <div id="inicio" class="aba ativa conteudo">
         <h1 class="nomes">William</h1>
         <h2 class="e-comercial" style="margin-top: 0;">&</h2>
-        <h1 class="nomes" style="margin-top: 1;">Luiza</h1>
+        <h1 class="nomes" style="margin-top: 1px;">Luiza</h1>
 
         <h2 class="titulo-secundario">Até o grande dia</h2>
 
@@ -169,6 +236,25 @@
                 <p>Seg</p>
             </div>
         </div>
+
+        <!-- Seção Polaroid / Nossa História -->
+        <section class="secao-polaroid">
+            <div class="container-polaroid">
+                <div class="foto-polaroid polaroid-esquerda">
+                    <img src="foto1.jpg" alt="Foto Pre-Wedding 1" loading="lazy">
+                </div>
+                <div class="foto-polaroid polaroid-direita">
+                    <img src="foto2.jpg" alt="Foto Pre-Wedding 2" loading="lazy">
+                </div>
+            </div>
+
+            <div class="texto-polaroid">
+                <h2>Nossa História</h2>
+                <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.
+                </p>
+            </div>
+        </section>
+
         <div class="caixa">
             <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
                 Localização</h2>
@@ -179,19 +265,7 @@
         </div>
     </div>
 
-    <!-- Aba 2: Localização -->
-    <div id="localizacao" class="aba conteudo">
-        <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                Localização</h2>
-            <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São
-                Paulo - SP</p>
-            <!-- Espaço para adicionar o mapa do Google futuramente -->
-            <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
-        </div>
-    </div>
-
-    <!-- Aba 3: Presentes -->
+    <!-- Aba 2: Presentes -->
     <div id="presentes" class="aba conteudo">
         <div class="caixa">
             <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
@@ -202,7 +276,7 @@
         </div>
     </div>
 
-    <!-- Aba 4: Confirmação -->
+    <!-- Aba 3: Confirmação -->
     <div id="rsvp" class="aba conteudo">
         <div class="caixa">
             <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
