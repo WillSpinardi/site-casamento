@@ -8,16 +8,24 @@
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block"
+        rel="stylesheet">
+
     <style>
         /* Ajusta o cursor apenas nos textos */
-        p, h1, h2, span {
+        p,
+        h1,
+        h2,
+        span {
             cursor: default;
         }
 
         /* Mantém o cursor correto nos elementos interativos */
-        button, a, input, select {
+        button,
+        a,
+        input,
+        select {
             cursor: pointer;
         }
 
@@ -102,7 +110,10 @@
         .banner-destaque::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-image: url('banner-principal.jpg');
             background-size: cover;
             background-position: center 37%;
@@ -114,7 +125,10 @@
         .banner-destaque::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.3);
             z-index: 2;
         }
@@ -243,8 +257,14 @@
             display: block;
         }
 
-        .polaroid-esquerda { transform: rotate(-6deg); }
-        .polaroid-direita { transform: rotate(4deg); margin-top: 20px; }
+        .polaroid-esquerda {
+            transform: rotate(-6deg);
+        }
+
+        .polaroid-direita {
+            transform: rotate(4deg);
+            margin-top: 20px;
+        }
 
         .foto-polaroid:hover {
             transform: scale(1.05) rotate(0deg);
@@ -272,7 +292,9 @@
         }
 
         /* Caixas de Conteúdo */
-        .conteudo { padding: 20px; }
+        .conteudo {
+            padding: 20px;
+        }
 
         .caixa {
             margin: 0 auto;
@@ -284,9 +306,12 @@
             border: 1px solid #F5E6E8;
         }
 
-        .caixa h2 { color: #D10068; }
+        .caixa h2 {
+            color: #D10068;
+        }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             margin-top: 15px;
             padding: 12px;
@@ -298,7 +323,8 @@
             background-color: #FAF7F6;
         }
 
-        button.btn-confirma, .botao-loja {
+        button.btn-confirma,
+        .botao-loja {
             width: 100%;
             margin-top: 15px;
             padding: 14px;
@@ -318,15 +344,23 @@
             transition: background-color 0.3s ease;
         }
 
-        button.btn-confirma:hover, .botao-loja:hover {
+        button.btn-confirma:hover,
+        .botao-loja:hover {
             background-color: #A80053;
         }
 
-        a { color: #D10068; }
+        a {
+            color: #D10068;
+        }
 
         /* Controle das Abas */
-        .aba { display: none; }
-        .aba.ativa { display: block; }
+        .aba {
+            display: none;
+        }
+
+        .aba.ativa {
+            display: block;
+        }
     </style>
 </head>
 
@@ -392,17 +426,25 @@
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
+                        dia.</p>
                 </div>
             </section>
 
             <!-- Localização -->
-            <div style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
+            <div
+                style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
                 <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
-                    <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Localização</h2>
-                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
+                    <h2
+                        style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                        Localização</h2>
+                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova
+                        Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
                     <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </div>
@@ -412,9 +454,13 @@
     <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
     <div id="rsvp" class="aba conteudo" style="margin-top: 40px;">
         <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">Confirme sua Presença</h2>
+            <h2
+                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">
+                Confirme sua Presença</h2>
             <form id="formRsvp">
-                <input type="text" id="nome" placeholder="Seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')">
+                <input type="text" id="nome" placeholder="Seu nome completo" required
+                    oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
+                    oninput="this.setCustomValidity('')">
                 <select id="vaiComparecer">
                     <option value="true">Vou comparecer</option>
                     <option value="false">Não poderei ir</option>
@@ -425,14 +471,64 @@
     </div>
 
     <!-- ABA 3: PRESENTES -->
+    <!-- ABA 3: PRESENTES -->
     <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
-        <div class="caixa">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 15px 0; font-weight: normal; color: #D10068;">Lista de Presentes</h2>
-            <p style="font-size: 14px; color: #444444;">Fique à vontade para escolher um presente:</p>
-            <a href="#" target="_blank" class="botao-loja">Amazon</a>
+        <div class="caixa" style="max-width: 600px; width: 100%; box-sizing: border-box;">
+            <h2
+                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">
+                Lista de Presentes</h2>
+            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">
+                Sua presença é o nosso maior presente! Caso queira nos abençoar com uma contribuição para a nossa nova
+                fase, escolha uma das sugestões abaixo ou faça um Pix de qualquer valor:
+            </p>
+
+            <!-- Quadro com a Chave PIX -->
+            <div
+                style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
+                <p
+                    style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">
+                    Nossa Chave Pix (E-mail ou CPF)</p>
+                <div
+                    style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">
+                    seu-email@email.com
+                </div>
+                <p style="font-size: 12px; color: #777777; margin: 10px 0 0 0;">Favorecido: William / Luiza</p>
+            </div>
+
+            <!-- Sugestões de Presentes Simbólicos -->
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                    <span style="font-size: 30px;">☕</span>
+                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Café da Manhã</h4>
+                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 50,00</p>
+                </div>
+
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                    <span style="font-size: 30px;">🍽️</span>
+                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Jantar Romântico</h4>
+                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 150,00</p>
+                </div>
+
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                    <span style="font-size: 30px;">✈️</span>
+                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Passeio na Lua de Mel</h4>
+                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 250,00</p>
+                </div>
+
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                    <span style="font-size: 30px;">🛒</span>
+                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Ajuda na Mobília</h4>
+                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 500,00</p>
+                </div>
+
+            </div>
         </div>
     </div>
-
     <script>
         function mudarAba(idDaAba, elemento) {
             document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
