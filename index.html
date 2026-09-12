@@ -84,19 +84,19 @@
         }
 
         /* Banner Principal */
+        /* Banner Principal */
         .banner-destaque {
             position: relative;
             width: 100%;
             height: 85vh;
-            background-image: url('banner-principal.jpg');
-            background-size: cover;
-            background-position: center 37%;
-            filter: grayscale(100%)blur(3px);
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            /* Mantém o desfoque dentro dos limites da tela */
         }
 
+        /* Camada da Foto com Desfoque e Preto/Branco */
         .banner-destaque::before {
             content: '';
             position: absolute;
@@ -104,14 +104,35 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background-image: url('banner-principal.jpg');
+            background-size: cover;
+            background-position: center 37%;
+            filter: grayscale(100%) blur(4px);
+            /* O desfoque fica apenas na foto */
+            transform: scale(1.05);
+            /* Evita bordas brancas causadas pelo blur */
+            z-index: 1;
         }
 
+        /* Camada para escurecer levemente a foto e dar leitura ao texto */
+        .banner-destaque::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+
+        /* Texto Nítido sobre a Foto */
         .texto-banner {
             position: relative;
-            z-index: 2;
+            z-index: 3;
+            /* Fica acima de todas as camadas */
             color: #FFFFFF;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
         .texto-banner h1 {
