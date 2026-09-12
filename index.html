@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>William & Luiza</title>
     <!-- Fontes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             background-color: #F8F5E9;
-            color: #4A5B52;
+            /* Fundo Bege Claro suave */
+            color: #2D3732;
+            /* Letras em tom escuro para boa leitura */
             margin: 0;
             padding: 0;
         }
 
-        /* Barra de Navegação Superior estilo referência */
+        /* Barra Superior */
         .header-topo {
             display: flex;
             justify-content: space-between;
@@ -33,7 +36,7 @@
         .logo-topo {
             font-family: 'Great Vibes', cursive;
             font-size: 26px;
-            color: #4A5B52;
+            color: #2D3732;
         }
 
         .menu-botoes {
@@ -48,29 +51,37 @@
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #4A5B52;
+            color: #2D3732;
             padding: 8px 16px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
+        /* Botão selecionado com fundo Fúcsia sutil e texto branco */
         .menu-botoes button.ativo {
-            background-color: #E6E1D3;
+            background-color: #D10068;
+            color: #FFFFFF;
+            border-radius: 2px;
         }
 
         .menu-botoes button:hover {
-            color: #C71585;
+            color: #D10068;
         }
 
-        /* Banner de Destaque estilo foto de fundo */
+        .menu-botoes button.ativo:hover {
+            color: #FFFFFF;
+        }
+
+        /* Banner Principal */
         .banner-destaque {
             position: relative;
             width: 100%;
             height: 85vh;
-            background-image: url('foto-capa-horizontal.jpg'); /* Substitua pelo nome da sua foto horizontal */
+            background-image: url('file:///C:/Users/spinardi/Downloads/lw-10.jpg');
+            /* Substitua pela foto de capa horizontal */
             background-size: cover;
             background-position: center;
-            filter: grayscale(100%); /* Efeito Preto e Branco */
+            filter: grayscale(100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -83,7 +94,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.25); /* Camada para dar contraste nos textos */
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .texto-banner {
@@ -105,6 +116,7 @@
             font-family: 'Great Vibes', cursive;
             font-size: 40px;
             margin: 10px 0;
+            color: #F8F5E9;
         }
 
         .texto-banner .data {
@@ -114,15 +126,16 @@
             margin-top: 20px;
         }
 
-        /* Estilo dos Títulos e Seções */
+        /* Titulos das seções em tom escuro */
         .titulo-secundario {
             font-family: 'Great Vibes', cursive;
-            font-size: 40px;
+            font-size: 45px;
             margin-top: 50px;
             font-weight: normal;
+            color: #2D3732;
         }
 
-        /* Cronômetro */
+        /* Cronômetro com bordas em Fúcsia */
         .cronometro {
             display: flex;
             justify-content: center;
@@ -131,7 +144,7 @@
         }
 
         .caixa-tempo {
-            border: 1px solid #C71585;
+            border: 1px solid #D10068;
             padding: 15px 0;
             width: 80px;
             background-color: transparent;
@@ -142,6 +155,7 @@
             font-weight: bold;
             display: block;
             margin-bottom: 5px;
+            color: #D10068;
         }
 
         .caixa-tempo p {
@@ -149,9 +163,10 @@
             text-transform: uppercase;
             margin: 0;
             letter-spacing: 1px;
+            color: #2D3732;
         }
 
-        /* Seção Polaroid estilo layout */
+        /* Seção Polaroid */
         .secao-polaroid {
             display: flex;
             flex-wrap: wrap;
@@ -171,7 +186,7 @@
         .foto-polaroid {
             background: #ffffff;
             padding: 12px 12px 35px 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
             border-radius: 2px;
             transition: transform 0.3s ease;
         }
@@ -206,18 +221,18 @@
             font-family: 'Great Vibes', cursive;
             font-size: 45px;
             margin: 0 0 10px 0;
-            color: #4A5B52;
+            color: #2D3732;
             font-weight: normal;
         }
 
         .texto-polaroid p {
             font-size: 14px;
             line-height: 1.6;
-            color: #666;
+            color: #555555;
             margin: 0;
         }
 
-        /* Caixas de Formulário e Informações */
+        /* Formulário e Caixas */
         .conteudo {
             padding: 20px;
         }
@@ -227,14 +242,12 @@
             padding: 30px;
             border-radius: 2px;
             width: 320px;
-            background: white;
+            background: #ffffff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         input,
-        select,
-        button.btn-confirma,
-        .botao-loja {
+        select {
             width: 100%;
             margin-top: 15px;
             padding: 12px;
@@ -244,9 +257,13 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        /* Botões de Ação em Fúcsia */
         button.btn-confirma,
         .botao-loja {
-            background: #C71585;
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: #D10068;
             color: white;
             border: none;
             cursor: pointer;
@@ -254,6 +271,15 @@
             letter-spacing: 1px;
             display: block;
             text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        button.btn-confirma:hover,
+        .botao-loja:hover {
+            background: #A80053;
         }
 
         /* Controle das Abas */
@@ -281,7 +307,6 @@
 
     <!-- Aba 1: Início -->
     <div id="inicio" class="aba ativa">
-        <!-- Banner Principal com Foto de Fundo -->
         <section class="banner-destaque">
             <div class="texto-banner">
                 <h1>William</h1>
@@ -309,11 +334,12 @@
                 </div>
             </div>
 
-            <!-- Seção Polaroid / Nossa História -->
+            <!-- Seção Polaroid -->
             <section class="secao-polaroid">
                 <div class="container-polaroid">
                     <div class="foto-polaroid polaroid-esquerda">
-                        <img src="foto1.jpg" alt="Foto Pre-Wedding 1" loading="lazy">
+                        <!-- SUA FOTO VERTICAL ENTRA AQUI -->
+                        <img src="sua-foto.jpg" alt="William e Luiza" loading="lazy">
                     </div>
                     <div class="foto-polaroid polaroid-direita">
                         <img src="foto2.jpg" alt="Foto Pre-Wedding 2" loading="lazy">
@@ -322,14 +348,17 @@
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
+                        dia.</p>
                 </div>
             </section>
 
             <div class="caixa">
-                <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
                     Localização</h2>
-                <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 - Bairro<br>São Paulo - SP</p>
+                <p style="font-size: 14px; line-height: 1.6;"><strong>Espaço X</strong><br>Rua Exemplo, 123 -
+                    Bairro<br>São Paulo - SP</p>
                 <p style="font-size: 12px; color: #888; margin-top: 20px;">(O mapa interativo será inserido aqui)</p>
             </div>
         </div>
@@ -365,7 +394,6 @@
     </div>
 
     <script>
-        // Troca de Abas e estilo do botão ativo
         function mudarAba(idDaAba, elemento) {
             document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
             document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
@@ -374,7 +402,6 @@
             elemento.classList.add('ativo');
         }
 
-        // Cronômetro Regressivo
         const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
 
         setInterval(function () {
@@ -387,7 +414,6 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Envio do formulário RSVP
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
