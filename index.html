@@ -456,6 +456,41 @@
                 padding: 20px 15px !important;
             }
         }
+
+        /* Coloca os dois blocos de texto lado a lado */
+        .localizacao-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Garante que cada coluna ocupe metade do espaço */
+        .info-coluna {
+            flex: 1;
+        }
+
+        .info-coluna h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .info-coluna p {
+            margin: 4px 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Ajuste automático para celulares (fica um embaixo do outro no celular) */
+        @media (max-width: 600px) {
+            .localizacao-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -527,41 +562,30 @@
             </section>
 
             <!-- Localização -->
-            <div
-                style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
-                <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
-                    <h2
-                        style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
-                        Localização</h2>
-                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova
-                        Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
-                    <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                    </div>
+            <h2 class="titulo-secao">Localização</h2>
+            <div class="localizacao-info">
+                <!-- Coluna da Esquerda: Endereço -->
+                <div class="info-coluna">
+                    <h3>Solene Espaço & Buffet</h3>
+                    <p>Av. Nova Cantareira, 3890 - Tucuruvi</p>
+                    <p>São Paulo - SP, 02330-000</p>
+                </div>
+
+                <!-- Coluna da Direita: Data e Horário -->
+                <div class="info-coluna">
+                    <h3>Data e Horário</h3>
+                    <p>Sábado, 10 de Outubro de 2026</p>
+                    <p>Horário: 16:30h</p>
                 </div>
             </div>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
-        <!-- INFORMAÇÕES IMPORTANTES -->
-        <div style="margin-top: 40px; text-align: center; font-family: 'Montserrat', sans-serif;">
-            <h3
-                style="font-family: 'Great Vibes', cursive; font-size: 40px; color: #D10068; margin-bottom: 15px; font-weight: normal;">
-                Informações Importantes
-            </h3>
-
-            <div
-                style="background: #fff0f5; border-radius: 12px; padding: 25px 20px; border-left: 4px solid #D10068; max-width: 600px; margin: 0 auto; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-
-                <p style="margin: 0 0 12px 0; color: #444; font-size: 15px; line-height: 1.5;">
-                    <strong style="color: #333;">Horário da Cerimônia: A cerimônia começará pontualmente às <strong>17h00
-                    </strong></strong> Pedimos a gentileza de chegar com 20
-                    minutos de antecedência.
-                </p>
-
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
