@@ -572,7 +572,8 @@
                 <!-- Formulário -->
                 <form id="formRsvp">
                     <label for="nome"
-                        style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Digite seu nome:
+                        style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Digite seu
+                        nome:
                     </label>
 
                     <!-- Wrapper para posicionar as sugestões -->
@@ -633,57 +634,96 @@
     </div>
 
     <!-- ABA 3: PRESENTES -->
-    <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
-        <div class="caixa" style="max-width: 600px; width: 100%; box-sizing: border-box;">
-            <h2
-                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">
-                Lista de Presentes</h2>
-            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">Sua presença é o nosso maior presente! Caso
-                queira nos abençoar com uma contribuição para a nossa nova fase, escolha uma das sugestões abaixo ou
-                faça um Pix de qualquer valor:</p>
+    <!-- ABA 3: LISTA DE PRESENTES -->
+    <!-- ABA 3: LISTA DE PRESENTES -->
+    <div id="presentes" class="aba conteudo" style="margin-top: 20px; padding: 20px; text-align: center;">
 
-            <!-- Quadro com a Chave PIX -->
-            <div
-                style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
+        <h2
+            style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068;">
+            Lista de Presentes
+        </h2>
+        <p
+            style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #666; margin-bottom: 30px;">
+            Sua presença é o nosso maior presente! Se desejar nos presentear, escolha uma opção abaixo:
+        </p>
+
+        <!-- Grid dos Cards de Presentes -->
+        <div style="
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 25px; 
+        max-width: 1000px; 
+        margin: 0 auto;
+    ">
+
+            <!-- Exemplo de Card 1 -->
+            <div style="
+            background: #ffffff; 
+            border: 1px solid #eee; 
+            border-radius: 8px; 
+            padding: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        ">
+                <img src="caminho-da-foto/jogo-de-panelas.jpg" alt="Jogo de Panelas"
+                    style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 15px 0 5px 0; color: #333;">
+                    Jogo de Panelas</h3>
                 <p
-                    style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">
-                    Nossa Chave Pix (E-mail ou CPF)</p>
-                <div
-                    style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">
-                    seu-email@email.com</div>
-                <p style="font-size: 12px; color: #777777; margin: 10px 0 0 0;">Favorecido: William / Luiza</p>
+                    style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 18px; color: #D10068; margin: 0 0 15px 0;">
+                    R$ 250,00</p>
+                <button onclick="presentear('Jogo de Panelas', '250.00')" style="
+                width: 100%; 
+                padding: 10px 15px; 
+                background-color: #D10068; 
+                color: #ffffff; 
+                border: none; 
+                border-radius: 4px; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: bold; 
+                cursor: pointer;
+            ">
+                    Presentear
+                </button>
             </div>
 
-            <!-- Sugestões de Presentes Simbólicos -->
-            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
-                    <span style="font-size: 30px;">☕</span>
-                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Café da Manhã</h4>
-                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 50,00</p>
-                </div>
-
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
-                    <span style="font-size: 30px;">🍽️</span>
-                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Jantar Romântico</h4>
-                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 150,00</p>
-                </div>
-
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
-                    <span style="font-size: 30px;">✈️</span>
-                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Passeio na Lua de Mel</h4>
-                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 250,00</p>
-                </div>
-
-                <div
-                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
-                    <span style="font-size: 30px;">🛒</span>
-                    <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Ajuda na Mobília</h4>
-                    <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 500,00</p>
-                </div>
+            <!-- Exemplo de Card 2 -->
+            <div style="
+            background: #ffffff; 
+            border: 1px solid #eee; 
+            border-radius: 8px; 
+            padding: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        ">
+                <img src="caminho-da-foto/jantar-romantico.jpg" alt="Jantar Romântico na Lua de Mel"
+                    style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; margin: 15px 0 5px 0; color: #333;">
+                    Jantar Romântico na Lua de Mel</h3>
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 18px; color: #D10068; margin: 0 0 15px 0;">
+                    R$ 150,00</p>
+                <button onclick="presentear('Jantar Romântico na Lua de Mel', '150.00')" style="
+                width: 100%; 
+                padding: 10px 15px; 
+                background-color: #D10068; 
+                color: #ffffff; 
+                border: none; 
+                border-radius: 4px; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: bold; 
+                cursor: pointer;
+            ">
+                    Presentear
+                </button>
             </div>
+
         </div>
     </div>
 
