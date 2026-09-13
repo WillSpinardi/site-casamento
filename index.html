@@ -570,20 +570,26 @@
                     30 DE SETEMBRO DE 2026</p>
 
                 <!-- Formulário -->
-                <form id="formRsvp" style="max-width: 320px; margin: 0 auto;">
-                    <input type="text" id="nome" placeholder="Seu nome completo" required
-                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
-                        oninput="this.setCustomValidity('')"
-                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
+                <form id="formRsvp">
+                    <label for="nome"
+                        style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Digite seu nome
+                        completo:</label>
+                    <input type="text" id="nome" list="lista-nomes" placeholder="Digite para buscar seu nome..."
+                        autocomplete="off" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
+                    <datalist id="lista-nomes"></datalist>
 
-                    <select id="vaiComparecer"
-                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
-                        <option value="true">Sim, irei comparecer</option>
-                        <option value="false">Desculpe, não poderei ir</option>
+                    <label for="vaiComparecer"
+                        style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Você
+                        comparecerá ao casamento?</label>
+                    <select id="vaiComparecer" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
+                        <option value="true">Sim, com certeza!</option>
+                        <option value="false">Infelizmente não poderei ir</option>
                     </select>
 
-                    <button type="submit" class="btn-confirma"
-                        style="margin-top: 20px; letter-spacing: 2px;">Confirmar</button>
+                    <button type="submit" style="margin-top: 20px; padding: 12px 24px; cursor: pointer;">Confirmar
+                        Resposta</button>
                 </form>
             </div>
 
