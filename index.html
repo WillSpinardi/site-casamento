@@ -585,7 +585,7 @@
                     <select id="vaiComparecer" required
                         style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
                         <option value="true">Sim, com certeza!</option>
-                        <option value="false">Infelizmente não poderei ir</option>
+                        <option value="false">Infelizmente, não poderei ir</option>
                     </select>
 
                     <button type="submit" style="margin-top: 20px; padding: 12px 24px; cursor: pointer;">Confirmar
@@ -688,22 +688,65 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Envio do RSVP
+        // Busca convidados no Supabase para preencher as sugestões (datalist)
+        const inputNome = document.getElementById('nome');
+        const dataList = document.getElementById('lista-nomes');
+        let listaConvidadosCache = [];
+
+        async function carregarConvidados() {
+            const { data, error } = await _supabase
+                .from('convidados')
+                .select('id, nome')
+                .is('vai_comparecer', null);
+
+            if (!error && data) {
+                listaConvidadosCache = data;
+                
+                dataList.innerHTML = '';
+                data.forEach(c => {
+                    const option = document.createElement('option');
+                    option.value = c.nome;
+                    dataList.appendChild(option);
+                });
+            }
+        }
+
+        // Carrega a lista assim que a página abre
+        carregarConvidados();
+
+        // Validação e Envio do RSVP
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
-            const nome = document.getElementById('nome').value;
+            
+            const nomeDigitado = inputNome.value.trim();
             const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-            const { data, error } = await _supabase
+            // Verifica se o nome digitado bate com algum da lista cadastrada
+            const convidadoEncontrado = listaConvidadosCache.find(
+                c => c.nome.toLowerCase() === nomeDigitado.toLowerCase()
+            );
+
+            if (!convidadoEncontrado) {
+                alert('Seu nome não foi encontrado na lista de convidados. Por favor, verifique a digitação.');
+                return;
+            }
+
+            // Atualiza a resposta do convidado no Supabase
+            const { error } = await _supabase
                 .from('convidados')
-                .insert([{ nome: nome, vai_comparecer: vaiComparecer }]);
+                .update({ 
+                    vai_comparecer: vaiComparecer,
+                    respondido_em: new Date().toISOString()
+                })
+                .eq('id', convidadoEncontrado.id);
 
             if (error) {
                 alert('Erro ao salvar resposta: ' + error.message);
             } else {
-                alert('Resposta salva com sucesso!');
+                alert('Presença confirmada com sucesso!');
                 form.reset();
+                carregarConvidados(); // Recarrega para remover o nome de quem já respondeu
             }
         });
     </script>
