@@ -574,10 +574,30 @@
                     <label for="nome"
                         style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Digite seu nome
                         completo:</label>
-                    <input type="text" id="nome" list="lista-nomes" placeholder="Digite para buscar seu nome..."
-                        autocomplete="off" required
-                        style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
-                    <datalist id="lista-nomes"></datalist>
+
+                    <!-- Wrapper para posicionar as sugestões -->
+                    <div style="position: relative; width: 100%;">
+                        <input type="text" id="nome" placeholder="Digite para buscar seu nome..." autocomplete="off"
+                            required style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
+                        <!-- Lista de sugestões personalizada -->
+                        <ul id="sugestoes-mobile" style="
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: none;
+            z-index: 1000;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        "></ul>
+                    </div>
 
                     <label for="vaiComparecer"
                         style="display: block; margin-top: 15px; font-family: 'Montserrat', sans-serif;">Você
@@ -585,11 +605,22 @@
                     <select id="vaiComparecer" required
                         style="width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box;">
                         <option value="true">Sim, com certeza!</option>
-                        <option value="false">Infelizmente, não poderei ir</option>
+                        <option value="false">Infelizmente não poderei ir</option>
                     </select>
 
-                    <button type="submit" style="margin-top: 20px; padding: 12px 24px; cursor: pointer;">Confirmar
-                        Resposta</button>
+                    <button type="submit" style="
+                     margin-top: 20px; 
+                     padding: 12px 24px; 
+                     background-color: #D10068; 
+                     color: #ffffff; 
+                     border: none; 
+                     border-radius: 4px; 
+                     font-family: 'Montserrat', sans-serif; 
+                     font-weight: bold; 
+                     cursor: pointer;
+                     width: 100%;
+                     "> Confirmar Resposta
+                    </button>
                 </form>
             </div>
 
@@ -656,9 +687,8 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <!-- ... todo o seu conteúdo HTML acima ... -->
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         // Conexão com o Supabase
@@ -688,39 +718,68 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Busca convidados no Supabase
+        // Elementos da Busca Customizada
         const inputNome = document.getElementById('nome');
-        const dataList = document.getElementById('lista-nomes');
+        const ulSugestoes = document.getElementById('sugestoes-mobile');
         let listaConvidadosCache = [];
 
+        // Carrega os nomes do banco de dados
         async function carregarConvidados() {
-            // Busca a lista completa de convidados
             const { data, error } = await _supabase
                 .from('convidados')
-                .select('id, nome, vai_comparecer');
+                .select('id, nome')
+                .is('vai_comparecer', null);
 
-            if (error) {
-                console.error("Erro Supabase:", error);
-                alert("Erro ao conectar no banco: " + error.message);
-                return;
-            }
-
-            if (data && data.length > 0) {
+            if (!error && data) {
                 listaConvidadosCache = data;
-                dataList.innerHTML = '';
-
-                // Preenche o datalist com todos os nomes disponíveis
-                data.forEach(c => {
-                    const option = document.createElement('option');
-                    option.value = c.nome;
-                    dataList.appendChild(option);
-                });
             }
         }
 
         carregarConvidados();
 
-        // Validação e Envio
+        // Evento ao digitar no campo de nome (Mobile e Desktop)
+        inputNome.addEventListener('input', () => {
+            const termo = inputNome.value.trim().toLowerCase();
+            ulSugestoes.innerHTML = '';
+
+            if (termo.length === 0) {
+                ulSugestoes.style.display = 'none';
+                return;
+            }
+
+            const filtrados = listaConvidadosCache.filter(c =>
+                c.nome.toLowerCase().includes(termo)
+            );
+
+            if (filtrados.length > 0) {
+                filtrados.forEach(c => {
+                    const li = document.createElement('li');
+                    li.textContent = c.nome;
+                    li.style.padding = '10px';
+                    li.style.cursor = 'pointer';
+                    li.style.borderBottom = '1px solid #eee';
+
+                    li.addEventListener('click', () => {
+                        inputNome.value = c.nome;
+                        ulSugestoes.style.display = 'none';
+                    });
+
+                    ulSugestoes.appendChild(li);
+                });
+                ulSugestoes.style.display = 'block';
+            } else {
+                ulSugestoes.style.display = 'none';
+            }
+        });
+
+        // Esconde as sugestões se clicar fora
+        document.addEventListener('click', (e) => {
+            if (e.target !== inputNome && e.target !== ulSugestoes) {
+                ulSugestoes.style.display = 'none';
+            }
+        });
+
+        // Envio do Formulário
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
@@ -728,13 +787,12 @@
             const nomeDigitado = inputNome.value.trim().toLowerCase();
             const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-            // Procura o nome aproximado na lista
             const convidadoEncontrado = listaConvidadosCache.find(
-                c => c.nome.toLowerCase().includes(nomeDigitado) || nomeDigitado.includes(c.nome.toLowerCase())
+                c => c.nome.toLowerCase() === nomeDigitado
             );
 
             if (!convidadoEncontrado) {
-                alert('Seu nome não foi encontrado na lista de convidados. Por favor, selecione uma das opções sugeridas.');
+                alert('Seu nome não foi encontrado na lista de convidados. Por favor, selecione seu nome na lista de sugestões.');
                 return;
             }
 
