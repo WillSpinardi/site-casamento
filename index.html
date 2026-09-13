@@ -8,16 +8,25 @@
     <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=block"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
         /* Cursor apenas nos textos */
-        p, h1, h2, span {
+        p,
+        h1,
+        h2,
+        span {
             cursor: default;
         }
 
         /* Mantém o cursor correto nos elementos interativos */
-        button, a, input, select {
+        button,
+        a,
+        input,
+        select {
             cursor: pointer;
         }
 
@@ -301,7 +310,8 @@
             color: #D10068;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             margin-top: 15px;
             padding: 12px;
@@ -313,7 +323,8 @@
             background-color: #FAF7F6;
         }
 
-        button.btn-confirma, .botao-loja {
+        button.btn-confirma,
+        .botao-loja {
             width: 100%;
             margin-top: 15px;
             padding: 14px;
@@ -333,7 +344,8 @@
             transition: background-color 0.3s ease;
         }
 
-        button.btn-confirma:hover, .botao-loja:hover {
+        button.btn-confirma:hover,
+        .botao-loja:hover {
             background-color: #A80053;
         }
 
@@ -411,7 +423,8 @@
                 align-items: center;
             }
 
-            .polaroid-esquerda, .polaroid-direita {
+            .polaroid-esquerda,
+            .polaroid-direita {
                 transform: none !important;
                 margin-top: 0 !important;
             }
@@ -425,12 +438,12 @@
                 text-align: center;
             }
 
-            #rsvp > div {
+            #rsvp>div {
                 flex-direction: column;
                 padding: 20px 10px !important;
             }
 
-            #rsvp > div > div:last-child {
+            #rsvp>div>div:last-child {
                 display: none;
             }
 
@@ -508,17 +521,25 @@
 
                 <div class="texto-polaroid">
                     <h2>Nossa História</h2>
-                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande dia.</p>
+                    <p>Escreva aqui um pequeno texto sobre vocês, o pedido de casamento ou a expectativa para o grande
+                        dia.</p>
                 </div>
             </section>
 
             <!-- Localização -->
-            <div style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
+            <div
+                style="background: linear-gradient(rgba(250, 247, 246, 0.75), rgba(250, 247, 246, 0.75)), url('localizacao.png'); background-size: cover; background-position: center; padding: 50px 20px; border-top: 1px solid #F0D5DA; border-bottom: 1px solid #F0D5DA; margin-top: 40px;">
                 <div class="caixa" style="width: 100%; max-width: 500px; box-sizing: border-box;">
-                    <h2 style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">Localização</h2>
-                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
+                    <h2
+                        style="font-family: 'Great Vibes', cursive; font-size: 35px; margin: 0 0 15px 0; font-weight: normal;">
+                        Localização</h2>
+                    <p style="font-size: 14px; line-height: 1.6;"><strong>Solene Espaço & Buffet</strong><br>Av. Nova
+                        Cantareira, 3890 - Tucuruvi<br>São Paulo - SP, 02330-000</p>
                     <div style="margin-top: 20px; border-radius: 6px; overflow: hidden;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.828533840092!2d-46.6159404!3d-23.4666487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef76e162c9579%3A0x86ff09fdc19c7c8c!2sSolene%20Espa%C3%A7o%20%26%20Buffet!5e0!3m2!1spt-BR!2sbr!4v1789188583639!5m2!1spt-BR!2sbr"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </div>
@@ -527,34 +548,49 @@
 
     <!-- ABA 2: CONFIRMAÇÃO DE PRESENÇA -->
     <div id="rsvp" class="aba conteudo" style="margin-top: 20px; padding: 0;">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background-color: #FAF7F6; padding: 40px 20px; gap: 20px; min-height: 80vh;">
+        <div
+            style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; background-color: #FAF7F6; padding: 40px 20px; gap: 20px; min-height: 80vh;">
             <!-- Foto da Esquerda -->
             <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-                <img src="polaroid2.jpg" alt="William e Luiza" loading="lazy" style="width: 100%; max-width: 600px; height: 800px; object-fit: cover; border-radius: 4px;">
+                <img src="polaroid2.jpg" alt="William e Luiza" loading="lazy"
+                    style="width: 100%; max-width: 600px; height: 800px; object-fit: cover; border-radius: 4px;">
             </div>
 
             <!-- Conteúdo Centralizado (RSVP) -->
-            <div style="flex: 1.2; min-width: 280px; max-width: 450px; text-align: center; margin: 0 auto; padding: 20px;">
-                <h2 style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068; line-height: 1;">Confirme sua presença</h2>
-                <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #777777; margin: 15px 0 5px 0;">até</p>
-                <p style="font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 600; color: #333333; margin: 0 0 30px 0;">30 DE SETEMBRO DE 2026</p>
+            <div
+                style="flex: 1.2; min-width: 280px; max-width: 450px; text-align: center; margin: 0 auto; padding: 20px;">
+                <h2
+                    style="font-family: 'Great Vibes', cursive; font-size: 65px; margin: 0; font-weight: normal; color: #D10068; line-height: 1;">
+                    Confirme sua presença</h2>
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #777777; margin: 15px 0 5px 0;">
+                    até</p>
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 600; color: #333333; margin: 0 0 30px 0;">
+                    30 DE SETEMBRO DE 2026</p>
 
                 <!-- Formulário -->
                 <form id="formRsvp" style="max-width: 320px; margin: 0 auto;">
-                    <input type="text" id="nome" placeholder="Seu nome completo" required oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')" oninput="this.setCustomValidity('')" style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
+                    <input type="text" id="nome" placeholder="Seu nome completo" required
+                        oninvalid="this.setCustomValidity('Por favor, digite o seu nome.')"
+                        oninput="this.setCustomValidity('')"
+                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align: center;">
 
-                    <select id="vaiComparecer" style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
+                    <select id="vaiComparecer"
+                        style="background: #FFFFFF; border: 1px solid #E6D0D4; text-align-last: center;">
                         <option value="true">Sim, irei comparecer</option>
                         <option value="false">Desculpe, não poderei ir</option>
                     </select>
 
-                    <button type="submit" class="btn-confirma" style="margin-top: 20px; letter-spacing: 2px;">Confirmar</button>
+                    <button type="submit" class="btn-confirma"
+                        style="margin-top: 20px; letter-spacing: 2px;">Confirmar</button>
                 </form>
             </div>
 
             <!-- Foto da Direita -->
             <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-                <img src="banner-rsvp1.jpg" alt="Mãos com alianças" loading="lazy" style="width: 100%; max-width: 600px; height: 800px; object-fit: cover; border-radius: 4px;">
+                <img src="banner-rsvp1.jpg" alt="Mãos com alianças" loading="lazy"
+                    style="width: 100%; max-width: 600px; height: 800px; object-fit: cover; border-radius: 4px;">
             </div>
         </div>
     </div>
@@ -562,37 +598,50 @@
     <!-- ABA 3: PRESENTES -->
     <div id="presentes" class="aba conteudo" style="margin-top: 40px;">
         <div class="caixa" style="max-width: 600px; width: 100%; box-sizing: border-box;">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">Lista de Presentes</h2>
-            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">Sua presença é o nosso maior presente! Caso queira nos abençoar com uma contribuição para a nossa nova fase, escolha uma das sugestões abaixo ou faça um Pix de qualquer valor:</p>
+            <h2
+                style="font-family: 'Great Vibes', cursive; font-size: 40px; margin: 0 0 10px 0; font-weight: normal; color: #D10068;">
+                Lista de Presentes</h2>
+            <p style="font-size: 14px; color: #555555; margin-bottom: 25px;">Sua presença é o nosso maior presente! Caso
+                queira nos abençoar com uma contribuição para a nossa nova fase, escolha uma das sugestões abaixo ou
+                faça um Pix de qualquer valor:</p>
 
             <!-- Quadro com a Chave PIX -->
-            <div style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
-                <p style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">Nossa Chave Pix (E-mail ou CPF)</p>
-                <div style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">seu-email@email.com</div>
+            <div
+                style="background-color: #F8ECEE; border: 1px dashed #D10068; border-radius: 6px; padding: 20px; margin-bottom: 30px;">
+                <p
+                    style="font-size: 13px; font-weight: 600; color: #D10068; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">
+                    Nossa Chave Pix (E-mail ou CPF)</p>
+                <div
+                    style="font-size: 15px; font-weight: 700; color: #333333; background: #FFFFFF; padding: 10px; border-radius: 4px; border: 1px solid #F0D5DA; display: inline-block; word-break: break-all;">
+                    seu-email@email.com</div>
                 <p style="font-size: 12px; color: #777777; margin: 10px 0 0 0;">Favorecido: William / Luiza</p>
             </div>
 
             <!-- Sugestões de Presentes Simbólicos -->
             <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">☕</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Café da Manhã</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 50,00</p>
                 </div>
 
-                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">🍽️</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Jantar Romântico</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 150,00</p>
                 </div>
 
-                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">✈️</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Passeio na Lua de Mel</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 250,00</p>
                 </div>
 
-                <div style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
+                <div
+                    style="border: 1px solid #F0D5DA; border-radius: 6px; padding: 15px; width: 150px; background: #FAF7F6; text-align: center;">
                     <span style="font-size: 30px;">🛒</span>
                     <h4 style="margin: 10px 0 5px 0; font-size: 14px; color: #333333;">Ajuda na Mobília</h4>
                     <p style="margin: 0; font-size: 14px; font-weight: 700; color: #D10068;">R$ 500,00</p>
@@ -602,7 +651,16 @@
     </div>
 
     <!-- Scripts -->
+    <!-- ... todo o seu conteúdo HTML acima ... -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // Conexão com o Supabase
+        const SUPABASE_URL = 'https://hzgdlplaaohpslkxjeyi.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_hMYuO_5mTZyR4EEOYfGe0Q_Ajb3CvTy';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Troca de Abas
         function mudarAba(idDaAba, elemento) {
             document.querySelectorAll('.aba').forEach(aba => aba.classList.remove('ativa'));
             document.querySelectorAll('.menu-botoes button').forEach(btn => btn.classList.remove('ativo'));
@@ -611,6 +669,7 @@
             elemento.classList.add('ativo');
         }
 
+        // Cronômetro
         const dataCasamento = new Date("Oct 10, 2026 00:00:00").getTime();
 
         setInterval(function () {
@@ -623,20 +682,23 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
+        // Envio do RSVP
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
             const nome = document.getElementById('nome').value;
             const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-            await fetch('http://localhost:3000/rsvp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome, vaiComparecer })
-            });
+            const { data, error } = await _supabase
+                .from('convidados')
+                .insert([{ nome: nome, vai_comparecer: vaiComparecer }]);
 
-            alert('Resposta salva com sucesso!');
-            form.reset();
+            if (error) {
+                alert('Erro ao salvar resposta: ' + error.message);
+            } else {
+                alert('Resposta salva com sucesso!');
+                form.reset();
+            }
         });
     </script>
 </body>
