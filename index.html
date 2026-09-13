@@ -663,7 +663,7 @@
     <script>
         // Conexão com o Supabase
         const SUPABASE_URL = 'https://hzgdlplaaohpslkxjeyi.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6Z2RscGxhYW9ocHNsa3hqZXlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyNjQzOTgsImV4cCI6MjEwNDg0MDM5OH0.Paa4SQx_FA6-Y_MvHVWHOm-eYLb38cDkXcTXWHPnL0k';
+        const SUPABASE_KEY = 'sb_publishable_hMYuO_5mTZyR4EEOYfGe0Q_Ajb3CvTy';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // Troca de Abas
@@ -688,21 +688,28 @@
             document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Busca convidados no Supabase para preencher as sugestões (datalist)
+        // Busca convidados no Supabase
         const inputNome = document.getElementById('nome');
         const dataList = document.getElementById('lista-nomes');
         let listaConvidadosCache = [];
 
         async function carregarConvidados() {
+            // Busca a lista completa de convidados
             const { data, error } = await _supabase
                 .from('convidados')
-                .select('id, nome')
-                .is('vai_comparecer', null);
+                .select('id, nome, vai_comparecer');
 
-            if (!error && data) {
+            if (error) {
+                console.error("Erro Supabase:", error);
+                alert("Erro ao conectar no banco: " + error.message);
+                return;
+            }
+
+            if (data && data.length > 0) {
                 listaConvidadosCache = data;
-                
                 dataList.innerHTML = '';
+
+                // Preenche o datalist com todos os nomes disponíveis
                 data.forEach(c => {
                     const option = document.createElement('option');
                     option.value = c.nome;
@@ -711,31 +718,29 @@
             }
         }
 
-        // Carrega a lista assim que a página abre
         carregarConvidados();
 
-        // Validação e Envio do RSVP
+        // Validação e Envio
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
-            
-            const nomeDigitado = inputNome.value.trim();
+
+            const nomeDigitado = inputNome.value.trim().toLowerCase();
             const vaiComparecer = document.getElementById('vaiComparecer').value === 'true';
 
-            // Verifica se o nome digitado bate com algum da lista cadastrada
+            // Procura o nome aproximado na lista
             const convidadoEncontrado = listaConvidadosCache.find(
-                c => c.nome.toLowerCase() === nomeDigitado.toLowerCase()
+                c => c.nome.toLowerCase().includes(nomeDigitado) || nomeDigitado.includes(c.nome.toLowerCase())
             );
 
             if (!convidadoEncontrado) {
-                alert('Seu nome não foi encontrado na lista de convidados. Por favor, verifique a digitação.');
+                alert('Seu nome não foi encontrado na lista de convidados. Por favor, selecione uma das opções sugeridas.');
                 return;
             }
 
-            // Atualiza a resposta do convidado no Supabase
             const { error } = await _supabase
                 .from('convidados')
-                .update({ 
+                .update({
                     vai_comparecer: vaiComparecer,
                     respondido_em: new Date().toISOString()
                 })
@@ -746,7 +751,7 @@
             } else {
                 alert('Presença confirmada com sucesso!');
                 form.reset();
-                carregarConvidados(); // Recarrega para remover o nome de quem já respondeu
+                carregarConvidados();
             }
         });
     </script>
