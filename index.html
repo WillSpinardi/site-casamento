@@ -457,38 +457,47 @@
             }
         }
 
-        /* Coloca os dois blocos de texto lado a lado */
-        .localizacao-info {
+        /* Container principal (lado a lado no PC, empilhado no Celular) */
+        .localizacao-container {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            gap: 30px;
             margin-bottom: 25px;
             text-align: center;
         }
 
-        /* Garante que cada coluna ocupe metade do espaço */
-        .info-coluna {
+        .info-bloco {
             flex: 1;
         }
 
-        .info-coluna h3 {
-            font-size: 1.1rem;
+        /* Títulos em Rosa Fúcsia */
+        .titulo-fucsia {
+            color: #FF007F;
+            /* Cor rosa fúcsia */
+            font-family: cursive, sans-serif;
+            /* Mantenha a fonte cursiva do seu tema */
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Subtítulos e textos em Preto/Cinza Padrão */
+        .info-bloco h3 {
             font-weight: bold;
-            margin-bottom: 8px;
-            color: #333;
+            color: #000000;
+            margin-bottom: 6px;
         }
 
-        .info-coluna p {
+        .info-bloco p {
+            color: #000000;
             margin: 4px 0;
-            color: #555;
-            font-size: 0.95rem;
         }
 
-        /* Ajuste automático para celulares (fica um embaixo do outro no celular) */
+        /* Ajuste exclusivo para Mobile */
         @media (max-width: 600px) {
-            .localizacao-info {
-                flex-direction: column-reverse;
-                gap: 15px;
+            .localizacao-container {
+                flex-direction: column;
+                /* Empilha os blocos no celular */
+                gap: 25px;
             }
         }
     </style>
@@ -570,19 +579,20 @@
                     <!-- Seção da Localização -->
                     <h2 class="titulo-secao">Localização</h2>
 
-                    <div class="localizacao-info">
-                        <!-- Coluna da Esquerda: Endereço -->
-                        <div class="info-coluna">
+                    <div class="localizacao-container">
+                        <!-- Bloco 1: Data e Horário -->
+                        <div class="info-bloco">
+                            <h2 class="titulo-fucsia">Data e Horário</h2>
+                            <p>Sábado, 15 de Novembro de 2026</p>
+                            <p>Às 18:00h</p>
+                        </div>
+
+                        <!-- Bloco 2: Localização -->
+                        <div class="info-bloco">
+                            <h2 class="titulo-fucsia">Localização</h2>
                             <h3>Solene Espaço & Buffet</h3>
                             <p>Av. Nova Cantareira, 3890 - Tucuruvi</p>
                             <p>São Paulo - SP, 02330-000</p>
-                        </div>
-
-                        <!-- Coluna da Direita: Data e Horário -->
-                        <div class="info-coluna">
-                            <h3>Data e Horário</h3>
-                            <p>Sábado, 10 de Outubro</p>
-                            <p>Horário: 16:30h</p>
                         </div>
                     </div>
                     <!-- O iframe do Google Maps continua aqui embaixo normal -->
