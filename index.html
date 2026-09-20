@@ -1358,31 +1358,27 @@
                 carregarConvidados();
             }
         });
-        function presentear(nomePresente, valor) {
-            const chavePix = "11919924146"; // Coloque seu CPF, e-mail ou chave aleatória aqui
-
-            navigator.clipboard.writeText(chavePix);
-            alert(`Obrigado pelo carinho!\n\nVocê escolheu: ${nomePresente} (R$ ${valor})\n\nA nossa chave Pix foi copiada automaticamente: ${chavePix}`);
-        }
-        // Substitua pela sua chave PIX real aqui:
-        const MINHA_CHAVE_PIX = "11919924146"; // Exemplo de chave PIX (pode ser CPF, e-mail, telefone ou chave aleatória)
-
         function presentear(nome, valor) {
-            // Converte o valor para o formato de moeda brasileira (ex: 269.09 -> R$ 269,09)
+            // Formata o valor para a moeda brasileira (ex: 269.09 -> R$ 269,09)
             const valorFormatado = parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
             // Atualiza os textos dentro da modal
-            document.getElementById('nomePresenteModal').innerText = nome;
-            document.getElementById('valorPresenteModal').innerText = valorFormatado;
-            document.getElementById('chavePix').value = MINHA_CHAVE_PIX;
+            const elNome = document.getElementById('nomePresenteModal');
+            const elValor = document.getElementById('valorPresenteModal');
 
-            // Reseta o texto do botão caso já tenha sido clicado antes
-            const btn = document.getElementById('btnCopiarPix');
-            btn.innerText = "Copiar PIX";
-            btn.style.backgroundColor = "#D10068";
+            if (elNome) elNome.innerText = nome;
+            if (elValor) elValor.innerText = valorFormatado;
+
+            // Garante que o Pix é a opção padrão exibida
+            mostrarPagamento('pix');
 
             // Exibe a modal
-            document.getElementById('modalPresente').style.display = 'flex';
+            const modal = document.getElementById('modalPresente');
+            if (modal) {
+                modal.style.display = 'flex';
+            } else {
+                console.error("Elemento 'modalPresente' não foi encontrado no HTML.");
+            }
         }
 
         function fecharModal() {
@@ -1408,7 +1404,6 @@
             }
         }
 
-        JavaScript
         function mostrarPagamento(tipo) {
             const pixBloco = document.getElementById('opcao-pix');
             const cartaoBloco = document.getElementById('opcao-cartao');
