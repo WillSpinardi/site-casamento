@@ -500,6 +500,62 @@
                 gap: 25px;
             }
         }
+
+        CSS .botoes-pagamento {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-opcao {
+            padding: 10px 18px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-opcao.active {
+            background-color: #c2185b;
+            /* Cor rosa fúcsia do seu tema */
+            color: #fff;
+            border-color: #c2185b;
+        }
+
+        .conteudo-pagamento {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .box-chave {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .box-chave input {
+            padding: 8px;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .btn-checkout-mp {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 20px;
+            background-color: #009ee3;
+            /* Azul padrão do Mercado Pago */
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+        }
     </style>
 </head>
 
@@ -1352,46 +1408,70 @@
             }
         }
 
+        JavaScript
+        function mostrarPagamento(tipo) {
+            const pixBloco = document.getElementById('opcao-pix');
+            const cartaoBloco = document.getElementById('opcao-cartao');
+            const botoes = document.querySelectorAll('.btn-opcao');
+
+            if (tipo === 'pix') {
+                pixBloco.style.display = 'block';
+                cartaoBloco.style.display = 'none';
+                botoes[0].classList.add('active');
+                botoes[1].classList.remove('active');
+            } else {
+                pixBloco.style.display = 'none';
+                cartaoBloco.style.display = 'block';
+                botoes[0].classList.remove('active');
+                botoes[1].classList.add('active');
+            }
+        }
+
+        function copiarPix() {
+            const chaveInput = document.getElementById('chavePixInput');
+            chaveInput.select();
+            chaveInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(chaveInput.value);
+            alert('Chave Pix copiada com sucesso!');
+        }
+
     </script>
-    <!-- MODAL DE PRESENTEAR -->
-    <div id="modalPresente"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+    HTML
+    <!-- Exemplo da estrutura HTML do seu modal -->
+    <div id="modalPresente" class="modal" style="display: none;">
+        <div class="modal-conteudo">
+            <span onclick="fecharModal()" class="fechar">&times;</span>
 
-        <div
-            style="background: #fff; width: 100%; max-width: 450px; border-radius: 12px; padding: 30px 25px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-family: 'Montserrat', sans-serif;">
+            <h2 id="nomePresenteModal">Nome do Presente</h2>
+            <p id="valorPresenteModal">R$ 0,00</p>
 
-            <!-- Botão Fechar (X) -->
-            <button onclick="fecharModal()"
-                style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 20px; cursor: pointer; color: #999;">&times;</button>
+            <h3>Escolha a forma de pagamento</h3>
 
-            <!-- Título do Pop-up -->
-            <h3
-                style="font-family: 'Great Vibes', cursive; font-size: 45px; color: #D10068; margin: 0 0 10px 0; font-weight: normal;">
-                Obrigado pelo carinho!
-            </h3>
-
-            <!-- Mensagem com o Presente -->
-            <p style="font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 20px;">
-                Ficamos muito felizes com a sua contribuição para o nosso presente:<br>
-                <strong id="nomePresenteModal" style="color: #333; font-size: 16px;"></strong><br>
-                no valor de <strong id="valorPresenteModal" style="color: #D10068; font-size: 18px;"></strong>.
-            </p>
-
-            <!-- Campo com a Chave PIX -->
-            <div
-                style="background: #f9f9f9; border: 1px dashed #D10068; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
-                <span
-                    style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; display: block; margin-bottom: 5px;">Chave
-                    PIX:</span>
-                <input type="text" id="chavePix" value="11919924146" readonly
-                    style="width: 100%; text-align: center; font-weight: bold; font-size: 14px; color: #333; border: none; background: transparent; outline: none;">
+            <!-- Botões para selecionar o método -->
+            <div class="botoes-pagamento">
+                <button class="btn-opcao active" type="button" onclick="mostrarPagamento('pix')">⚡ Pix</button>
+                <button class="btn-opcao" type="button" onclick="mostrarPagamento('cartao')">💳 Cartão de Crédito /
+                    Débito</button>
             </div>
 
-            <!-- Botão Copiar PIX -->
-            <button id="btnCopiarPix" onclick="copiarPix()"
-                style="width: 100%; padding: 12px; background-color: #D10068; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer; transition: background 0.3s;">
-                Copiar PIX
-            </button>
+            <!-- Bloco do PIX -->
+            <div id="opcao-pix" class="conteudo-pagamento">
+                <p>Copie a chave Pix abaixo para realizar o pagamento no app do seu banco:</p>
+                <div class="box-chave">
+                    <input type="text" value="sua-chave-pix-aqui@email.com" id="chavePixInput" readonly>
+                    <button type="button" onclick="copiarPix()">Copiar Chave</button>
+                </div>
+            </div>
+
+            <!-- Bloco do CARTÃO -->
+            <div id="opcao-cartao" class="conteudo-pagamento" style="display: none;">
+                <p>Você será redirecionado para o ambiente seguro do Mercado Pago para pagar no cartão de crédito ou
+                    débito:</p>
+                <a href="https://link.mercadopago.com.br/presentewillelu" target="_blank" rel="noopener noreferrer"
+                    class="btn-checkout-mp">
+                    Pagar com Cartão no Mercado Pago
+                </a>
+            </div>
 
         </div>
     </div>
