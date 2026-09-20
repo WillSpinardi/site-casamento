@@ -1372,21 +1372,30 @@
                 no valor de <strong id="valorPresenteModal" style="color: #D10068; font-size: 18px;"></strong>.
             </p>
 
-            <!-- Campo com a Chave PIX -->
+            <!-- Opção 1: PIX -->
             <div
-                style="background: #f9f9f9; border: 1px dashed #D10068; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                style="background: #f9f9f9; border: 1px dashed #D10068; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
                 <span
-                    style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; display: block; margin-bottom: 5px;">Chave
+                    style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; display: block; margin-bottom: 5px;">Pagar
+                    via
                     PIX:</span>
                 <input type="text" id="chavePix" value="11919924146" readonly
-                    style="width: 100%; text-align: center; font-weight: bold; font-size: 14px; color: #333; border: none; background: transparent; outline: none;">
+                    style="width: 100%; text-align: center; font-weight: bold; font-size: 14px; color: #333; border: none; background: transparent; outline: none; margin-bottom: 8px;">
+
+                <button id="btnCopiarPix" onclick="copiarPix()"
+                    style="width: 100%; padding: 10px; background-color: #D10068; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 13px; cursor: pointer; transition: background 0.3s;">
+                    Copiar PIX
+                </button>
             </div>
 
-            <!-- Botão Copiar PIX -->
-            <button id="btnCopiarPix" onclick="copiarPix()"
-                style="width: 100%; padding: 12px; background-color: #D10068; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer; transition: background 0.3s;">
-                Copiar PIX
-            </button>
+            <!-- Divisor -->
+            <div style="margin: 15px 0; font-size: 12px; color: #aaa; font-weight: bold;">OU</div>
+
+            <!-- Opção 2: Cartão de Crédito / Débito (Mercado Pago) -->
+            <a id="btnMercadoPago" href="http://link.mercadopago.com.br/presentewillelu" target="_blank" rel="noopener noreferrer"
+                style="display: block; width: 100%; padding: 12px; background-color: #009EE3; color: #fff; border: none; border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer; text-decoration: none; box-sizing: border-box;">
+                💳 Pagar com Cartão (Crédito/Débito)
+            </a>
 
         </div>
     </div>
