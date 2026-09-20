@@ -499,7 +499,7 @@
                 /* Empilha os blocos no celular */
                 gap: 25px;
             }
-            
+
         }
     </style>
 </head>
@@ -1271,6 +1271,7 @@
         });
 
         // Envio do Formulário
+        // Envio do Formulário
         const form = document.getElementById('formRsvp');
         form.addEventListener('submit', async (evento) => {
             evento.preventDefault();
@@ -1303,17 +1304,12 @@
                 carregarConvidados();
             }
         });
-        function presentear(nomePresente, valor) {
-            const chavePix = "11919924146"; // Coloque seu CPF, e-mail ou chave aleatória aqui
 
-            navigator.clipboard.writeText(chavePix);
-            alert(`Obrigado pelo carinho!\n\nVocê escolheu: ${nomePresente} (R$ ${valor})\n\nA nossa chave Pix foi copiada automaticamente: ${chavePix}`);
-        }
-        // Substitua pela sua chave PIX real aqui:
-        const MINHA_CHAVE_PIX = "11919924146"; // Exemplo de chave PIX (pode ser CPF, e-mail, telefone ou chave aleatória)
+        // Configuração da Modal de Presentear
+        const MINHA_CHAVE_PIX = "11919924146";
 
         function presentear(nome, valor) {
-            // Converte o valor para o formato de moeda brasileira (ex: 269.09 -> R$ 269,09)
+            // Converte o valor para o formato de moeda brasileira
             const valorFormatado = parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
             // Atualiza os textos dentro da modal
@@ -1337,11 +1333,10 @@
         function copiarPix() {
             const campoPix = document.getElementById('chavePix');
 
-            // Copia o texto para a área de transferência
             navigator.clipboard.writeText(campoPix.value).then(() => {
                 const btn = document.getElementById('btnCopiarPix');
                 btn.innerText = "✓ PIX Copiado!";
-                btn.style.backgroundColor = "#28a745"; // Fica verde para confirmar
+                btn.style.backgroundColor = "#28a745";
             });
         }
 
@@ -1352,7 +1347,6 @@
                 fecharModal();
             }
         }
-
     </script>
     <!-- MODAL DE PRESENTEAR -->
     <div id="modalPresente"
