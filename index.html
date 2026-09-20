@@ -500,8 +500,8 @@
                 gap: 25px;
             }
         }
-
-        CSS .botoes-pagamento {
+        /* Estilos das opções de pagamento no Modal */
+        .botoes-pagamento {
             display: flex;
             gap: 10px;
             justify-content: center;
@@ -519,10 +519,10 @@
         }
 
         .btn-opcao.active {
-            background-color: #c2185b;
-            /* Cor rosa fúcsia do seu tema */
+            background-color: #FF007F;
+            /* Cor rosa fúcsia */
             color: #fff;
-            border-color: #c2185b;
+            border-color: #FF007F;
         }
 
         .conteudo-pagamento {
@@ -550,7 +550,7 @@
             margin-top: 12px;
             padding: 12px 20px;
             background-color: #009ee3;
-            /* Azul padrão do Mercado Pago */
+            /* Cor azul oficial do Mercado Pago */
             color: #fff;
             text-decoration: none;
             font-weight: bold;
@@ -1359,49 +1359,24 @@
             }
         });
         function presentear(nome, valor) {
-            // Formata o valor para a moeda brasileira (ex: 269.09 -> R$ 269,09)
             const valorFormatado = parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-            // Atualiza os textos dentro da modal
             const elNome = document.getElementById('nomePresenteModal');
             const elValor = document.getElementById('valorPresenteModal');
 
             if (elNome) elNome.innerText = nome;
             if (elValor) elValor.innerText = valorFormatado;
 
-            // Garante que o Pix é a opção padrão exibida
+            // Garante que o Pix é o padrão ao abrir
             mostrarPagamento('pix');
 
-            // Exibe a modal
             const modal = document.getElementById('modalPresente');
-            if (modal) {
-                modal.style.display = 'flex';
-            } else {
-                console.error("Elemento 'modalPresente' não foi encontrado no HTML.");
-            }
+            if (modal) modal.style.display = 'flex';
         }
 
         function fecharModal() {
-            document.getElementById('modalPresente').style.display = 'none';
-        }
-
-        function copiarPix() {
-            const campoPix = document.getElementById('chavePix');
-
-            // Copia o texto para a área de transferência
-            navigator.clipboard.writeText(campoPix.value).then(() => {
-                const btn = document.getElementById('btnCopiarPix');
-                btn.innerText = "✓ PIX Copiado!";
-                btn.style.backgroundColor = "#28a745"; // Fica verde para confirmar
-            });
-        }
-
-        // Fecha o pop-up se o usuário clicar fora da caixa branca
-        window.onclick = function (event) {
             const modal = document.getElementById('modalPresente');
-            if (event.target === modal) {
-                fecharModal();
-            }
+            if (modal) modal.style.display = 'none';
         }
 
         function mostrarPagamento(tipo) {
@@ -1410,29 +1385,32 @@
             const botoes = document.querySelectorAll('.btn-opcao');
 
             if (tipo === 'pix') {
-                pixBloco.style.display = 'block';
-                cartaoBloco.style.display = 'none';
-                botoes[0].classList.add('active');
-                botoes[1].classList.remove('active');
+                if (pixBloco) pixBloco.style.display = 'block';
+                if (cartaoBloco) cartaoBloco.style.display = 'none';
+                if (botoes[0]) botoes[0].classList.add('active');
+                if (botoes[1]) botoes[1].classList.remove('active');
             } else {
-                pixBloco.style.display = 'none';
-                cartaoBloco.style.display = 'block';
-                botoes[0].classList.remove('active');
-                botoes[1].classList.add('active');
+                if (pixBloco) pixBloco.style.display = 'none';
+                if (cartaoBloco) cartaoBloco.style.display = 'block';
+                if (botoes[0]) botoes[0].classList.remove('active');
+                if (botoes[1]) botoes[1].classList.add('active');
             }
         }
 
         function copiarPix() {
             const chaveInput = document.getElementById('chavePixInput');
-            chaveInput.select();
-            chaveInput.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(chaveInput.value);
-            alert('Chave Pix copiada com sucesso!');
+            if (chaveInput) {
+                chaveInput.select();
+                chaveInput.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(chaveInput.value);
+                alert('Chave Pix copiada com sucesso!');
+            }
         }
 
     </script>
     HTML
     <!-- Exemplo da estrutura HTML do seu modal -->
+    <!-- Modal de Presentear -->
     <div id="modalPresente" class="modal" style="display: none;">
         <div class="modal-conteudo">
             <span onclick="fecharModal()" class="fechar">&times;</span>
