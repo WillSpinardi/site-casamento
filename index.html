@@ -1359,68 +1359,36 @@
             }
         });
         function presentear(nome, valor) {
-            // 1. Formata o valor para a moeda brasileira
-            const valorFormatado = parseFloat(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-            // 2. Atualiza os textos dentro da modal
-            const elNome = document.getElementById('nomePresenteModal');
-            const elValor = document.getElementById('valorPresenteModal');
-
-            if (elNome) elNome.innerText = nome;
-            if (elValor) elValor.innerText = valorFormatado;
-
-            // 3. Garante que o Pix é a opção inicial exibida
-            if (typeof mostrarPagamento === 'function') {
-                mostrarPagamento('pix');
-            }
-
-            // 4. Força a exibição do modal
-            const modal = document.getElementById('modalPresente');
+            var modal = document.getElementById('modalPresente');
             if (modal) {
-                modal.style.display = 'flex';
+                modal.style.display = 'flex'; // Torna o modal visível
+
+                // Se tiver elementos para preencher os dados do presente:
+                var tituloModal = document.getElementById('nomePresente');
+                if (tituloModal) tituloModal.innerText = nome;
+            } else {
+                console.error("Erro: elemento com id 'modalPresente' não foi encontrado.");
             }
         }
 
     </script>
-    <!-- Exemplo da estrutura HTML do seu modal -->
-    <!-- Modal de Presentear -->
+    <!-- Modal com o ID exato procurado pelo JS -->
     <div id="modalPresente" class="modal" style="display: none;">
         <div class="modal-conteudo">
-            <span onclick="fecharModal()" class="fechar">&times;</span>
-
-            <h2 id="nomePresenteModal">Nome do Presente</h2>
-            <p id="valorPresenteModal">R$ 0,00</p>
-
-            <h3>Escolha a forma de pagamento</h3>
-
-            <!-- Botões para selecionar o método -->
-            <div class="botoes-pagamento">
-                <button class="btn-opcao active" type="button" onclick="mostrarPagamento('pix')">⚡ Pix</button>
-                <button class="btn-opcao" type="button" onclick="mostrarPagamento('cartao')">💳 Cartão de Crédito /
-                    Débito</button>
-            </div>
-
-            <!-- Bloco do PIX -->
-            <div id="opcao-pix" class="conteudo-pagamento">
-                <p>Copie a chave Pix abaixo para realizar o pagamento no app do seu banco:</p>
-                <div class="box-chave">
-                    <input type="text" value="sua-chave-pix-aqui@email.com" id="chavePixInput" readonly>
-                    <button type="button" onclick="copiarPix()">Copiar Chave</button>
-                </div>
-            </div>
-
-            <!-- Bloco do CARTÃO -->
-            <div id="opcao-cartao" class="conteudo-pagamento" style="display: none;">
-                <p>Você será redirecionado para o ambiente seguro do Mercado Pago para pagar no cartão de crédito ou
-                    débito:</p>
-                <a href="https://link.mercadopago.com.br/presentewillelu" target="_blank" rel="noopener noreferrer"
-                    class="btn-checkout-mp">
-                    Pagar com Cartão no Mercado Pago
-                </a>
-            </div>
-
+            <h2 id="nomePresente"></h2>
+            <!-- Resto do seu modal -->
         </div>
     </div>
+
+    <!-- O Script com a função -->
+    <script>
+        function presentear(nome, valor) {
+            var modal = document.getElementById('modalPresente');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+    </script>
 </body>
 
 </html>
